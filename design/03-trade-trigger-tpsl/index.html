@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch - Trade Screen</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Familjen Grotesk (Display) & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,600;0,700;1,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#9fe870",
+            "on-background": "#181d18",
+            "on-tertiary-container": "#7b4f5e",
+            "surface": "#FFFFFF",
+            "warning-text": "#A75906",
+            "danger-text": "#CE2020",
+            "tertiary-fixed": "#ffd9e3",
+            "on-secondary": "#ffffff",
+            "text-secondary": "#4A5541",
+            "surface-container-high": "#e5eae2",
+            "tertiary-container": "#ffc5d7",
+            "text-primary": "#141F0C",
+            "border-hairline": "#E3E9DE",
+            "on-error-container": "#93000a",
+            "background": "#F7FCF4",
+            "accent-fill": "#557D3C",
+            "data-series": "#FF5F03",
+            "warning-tint": "#FAEFE1",
+            "secondary-fixed": "#c2f0a2",
+            "inverse-on-surface": "#edf2ea",
+            "surface-dim": "#d6dbd4",
+            "success-text": "#0E7C3A",
+            "secondary-fixed-dim": "#a7d388",
+            "on-secondary-fixed-variant": "#2b5014",
+            "text-tertiary": "#626C59",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "on-tertiary-fixed-variant": "#643a49",
+            "surface-container-highest": "#dfe4dc",
+            "tertiary": "#7e5161",
+            "on-tertiary": "#ffffff",
+            "outline": "#717a68",
+            "error": "#ba1a1a",
+            "on-primary-container": "#2e6900",
+            "on-secondary-container": "#466d2e",
+            "surface-variant": "#dfe4dc",
+            "surface-alt": "#F2F6EE",
+            "primary-fixed-dim": "#91d963",
+            "primary-fixed": "#acf67c",
+            "on-primary-fixed-variant": "#225100",
+            "accent-tint": "#F2FCEB",
+            "primary": "#2f6c00",
+            "support-peach": "#FFB08A",
+            "surface-container-lowest": "#ffffff",
+            "danger-tint": "#FBE5E5",
+            "on-tertiary-fixed": "#31101e",
+            "surface-tint": "#2f6c00",
+            "inverse-surface": "#2c322d",
+            "on-secondary-fixed": "#092100",
+            "border-control": "#749F6F",
+            "on-primary-fixed": "#092100",
+            "secondary": "#42682a",
+            "success-tint": "#E3F4E9",
+            "surface-container": "#eaefe7",
+            "surface-bright": "#f6fbf3",
+            "secondary-container": "#bfed9f",
+            "on-surface-variant": "#41493a",
+            "on-error": "#ffffff",
+            "inverse-primary": "#91d963",
+            "on-surface": "#181d18",
+            "surface-container-low": "#f0f5ed",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "accent-pressed": "#4C7036",
+            "outline-variant": "#c1cab5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "margin": "20px"
+          },
+          "fontFamily": {
+            "label": ["Inter"],
+            "caption": ["Inter"],
+            "display": ["Familjen Grotesk"],
+            "body": ["Inter"],
+            "title": ["Inter"]
+          },
+          "fontSize": {
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .postal-ticket-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+    /* Subtle serrated top edge motif */
+    .perforated-border {
+      background-image: radial-gradient(circle at 10px -2px, transparent 4px, #FFFFFF 4.5px);
+      background-size: 16px 8px;
+      background-repeat: repeat-x;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased font-body min-h-screen flex justify-center selection:bg-primary-container selection:text-text-primary">
+<!-- Mobile Viewport Container (393px width constraint) -->
+<div class="w-full max-w-[393px] min-h-screen bg-background relative flex flex-col pb-28">
+<!-- Top App Bar (Semantic Shell - Shared Component) -->
+<header class="fixed top-0 left-0 right-0 max-w-[393px] mx-auto z-50 flex justify-between items-center px-margin h-14 bg-surface/95 backdrop-blur-md border-b border-border-hairline">
+<!-- Left: Postmark Icon + Screen Title -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border border-border-control/50 flex items-center justify-center bg-surface-alt relative" title="Dispatch Postmark">
+<span class="material-symbols-outlined text-[18px] text-text-primary">mail</span>
+<span class="absolute -bottom-0.5 -right-0.5 text-[12px] font-mono leading-none bg-surface px-0.5 rounded border border-border-hairline text-text-tertiary">DP</span>
+</div>
+<h1 class="text-title font-title text-text-primary font-bold tracking-tight">Trade</h1>
+</div>
+<!-- Right: Wallet Chip & Settings Action -->
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1.5 bg-surface-alt border border-border-hairline rounded-full px-2.5 py-1">
+<span class="w-2 h-2 rounded-full bg-primary-container ring-2 ring-primary/20 animate-pulse"></span>
+<span class="font-caption text-caption text-text-secondary">0x7a3f...91c2</span>
+</div>
+<button aria-label="Settings" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-alt transition-colors duration-150 active:scale-95 text-text-secondary">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin pt-16 flex flex-col gap-3.5">
+<!-- Market Selector & Ticker Banner Bento Block -->
+<section class="pt-2 flex flex-col gap-2.5">
+<!-- Asset Chips -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-3.5 py-1.5 rounded-full border border-border-hairline bg-surface hover:bg-surface-alt transition-colors flex items-center gap-1 text-text-secondary active:scale-95">
+<span class="font-caption text-caption font-semibold">BTC</span>
+<span class="font-caption text-[12px] text-text-tertiary">100x</span>
+</button>
+<!-- Selected ETH Chip -->
+<button class="px-4 py-1.5 rounded-full bg-text-primary text-surface flex items-center gap-1.5 shadow-sm active:scale-95">
+<span class="font-caption text-caption font-bold">ETH</span>
+<span class="font-caption text-[12px] text-primary-container font-mono">50x</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full border border-border-hairline bg-surface hover:bg-surface-alt transition-colors flex items-center gap-1 text-text-secondary active:scale-95">
+<span class="font-caption text-caption font-semibold">SOL</span>
+<span class="font-caption text-[12px] text-text-tertiary">20x</span>
+</button>
+<button class="px-3 py-1.5 rounded-full border border-border-hairline bg-surface hover:bg-surface-alt transition-colors flex items-center text-text-tertiary active:scale-95 ml-auto">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<!-- Ticker Price Banner -->
+<div class="flex items-center justify-between bg-surface rounded-xl px-3.5 py-2 border border-border-hairline">
+<div class="flex items-center gap-2">
+<span class="font-title text-caption font-bold text-text-primary">ETH / USD Perp</span>
+<span class="bg-surface-alt text-text-tertiary text-[12px] font-caption px-1.5 py-0.5 rounded">Index</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-display text-[15px] font-bold text-text-primary tabular-nums tracking-tight">$3,284.10</span>
+<span class="inline-flex items-center text-[12px] font-semibold text-success-text bg-success-tint px-1.5 py-0.5 rounded-full">
+              +1.84%
+            </span>
+</div>
+</div>
+</section>
+<!-- Segmented Controls: Direction & Timing -->
+<section class="grid grid-cols-2 gap-2">
+<!-- Direction Control: Long vs Short (Short selected) -->
+<div class="bg-surface-alt p-1 rounded-xl border border-border-hairline flex items-center">
+<button class="flex-1 py-1.5 rounded-lg text-center font-caption text-caption text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1">
+<span>Long</span>
+<span class="text-success-text text-xs">↑</span>
+</button>
+<button class="flex-1 py-1.5 rounded-lg text-center font-caption text-caption font-bold bg-danger-tint text-danger-text border border-danger-text/20 shadow-xs flex items-center justify-center gap-1">
+<span>Short</span>
+<span class="font-bold text-xs">↓</span>
+</button>
+</div>
+<!-- Timing Control: Now vs When price hits (When price hits selected) -->
+<div class="bg-surface-alt p-1 rounded-xl border border-border-hairline flex items-center">
+<button class="flex-1 py-1.5 rounded-lg text-center font-caption text-caption text-text-secondary hover:text-text-primary transition-colors">
+            Now
+          </button>
+<button class="flex-1 py-1.5 rounded-lg text-center font-caption text-caption font-bold bg-surface text-text-primary shadow-xs border border-border-hairline">
+            When hits
+          </button>
+</div>
+</section>
+<!-- Main Postal Ticket Card -->
+<section class="bg-surface rounded-2xl postal-ticket-shadow border border-border-hairline relative overflow-hidden flex flex-col">
+<!-- Postal Decorative Header Notch / Perforations -->
+<div class="h-1.5 w-full border-b border-dashed border-border-hairline bg-surface-alt/50"></div>
+<div class="p-4 flex flex-col gap-4">
+<!-- Focal Hero Section & Side Ladder Layout -->
+<div class="flex items-start justify-between gap-3">
+<!-- Left: Hero Big Number & Parameters -->
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-1.5 text-text-tertiary font-label text-caption mb-0.5">
+<span>Trigger price</span>
+<span class="material-symbols-outlined text-[14px]">sell</span>
+</div>
+<!-- Massive High-Contrast Hero Number -->
+<div class="font-display text-display font-bold text-text-primary tracking-tight tabular-nums">
+                $3,350.00
+              </div>
+<!-- Order Summary Row -->
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 bg-surface-alt border border-border-hairline px-2 py-0.5 rounded-md">
+<span class="text-[12px] font-caption text-text-tertiary">Bet:</span>
+<span class="font-caption text-caption font-bold text-text-primary">$100</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-alt border border-border-hairline px-2 py-0.5 rounded-md">
+<span class="text-[12px] font-caption text-text-tertiary">Lev:</span>
+<span class="font-caption text-caption font-bold text-text-primary">5x</span>
+</div>
+<span class="text-[12px] font-caption text-text-tertiary">Short Order</span>
+</div>
+</div>
+<!-- Right: Interactive Visual Price Ladder Scale -->
+<div class="w-36 bg-surface-alt rounded-xl p-2.5 border border-border-hairline flex gap-2">
+<!-- Vertical Ruler Graphic Line -->
+<div class="relative w-2 flex flex-col items-center justify-between py-1">
+<div class="absolute inset-y-1 w-0.5 bg-border-hairline left-1/2 -translate-x-1/2"></div>
+<!-- Stop loss marker -->
+<div class="w-2 h-2 rounded-full bg-danger-text z-10"></div>
+<!-- Trigger marker -->
+<div class="w-2.5 h-2.5 rounded-full bg-text-primary ring-2 ring-surface z-10"></div>
+<!-- Now marker -->
+<div class="w-2 h-2 rounded-full bg-primary-container ring-1 ring-border-control z-10"></div>
+<!-- Take profit marker -->
+<div class="w-2 h-2 rounded-full bg-success-text z-10"></div>
+</div>
+<!-- Ladder Markers Labels -->
+<div class="flex-1 flex flex-col justify-between py-0 text-[12px] font-caption leading-tight">
+<!-- 1. Stop Loss -->
+<div>
+<span class="text-text-tertiary block text-[12px]">Stop Loss</span>
+<span class="font-bold text-danger-text font-display tabular-nums">$3,420.00</span>
+</div>
+<!-- 2. Trigger Price -->
+<div class="my-1.5">
+<span class="text-text-tertiary block text-[12px]">Trigger</span>
+<span class="font-bold text-text-primary font-display tabular-nums">$3,350.00</span>
+</div>
+<!-- 3. Current Price (Now) -->
+<div class="mb-1.5">
+<span class="text-text-tertiary block text-[12px] flex items-center gap-0.5">
+                    Now
+                  </span>
+<span class="font-bold text-text-secondary font-display tabular-nums">$3,284.10</span>
+</div>
+<!-- 4. Take Profit -->
+<div>
+<span class="text-text-tertiary block text-[12px]">Take Profit</span>
+<span class="font-bold text-success-text font-display tabular-nums">$3,150.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-border-hairline w-full"></div>
+<!-- Take Profit / Stop Loss Section -->
+<div class="flex flex-col gap-2.5">
+<!-- Toggle Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-text-primary">verified_user</span>
+<span class="font-caption text-caption font-bold text-text-primary">Take profit / Stop loss</span>
+</div>
+<!-- Active Lime Toggle -->
+<div class="w-10 h-6 bg-primary-container rounded-full p-0.5 flex items-center justify-end cursor-pointer border border-border-control/60">
+<div class="w-5 h-5 bg-surface rounded-full shadow-sm"></div>
+</div>
+</div>
+<!-- Active Expandable Parameter Rows -->
+<div class="flex flex-col gap-1.5 bg-surface-alt/70 p-2.5 rounded-xl border border-border-hairline">
+<!-- Row 1: Take Profit (Profit for Short: Price lower) -->
+<div class="flex items-center justify-between py-1 px-1.5 bg-surface rounded-lg border border-border-hairline">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+<span class="font-caption text-caption text-text-secondary">Take profit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption font-bold text-text-primary tabular-nums">$3,150.00</span>
+<span class="text-[12px] font-caption text-text-tertiary">-5.97%</span>
+<span class="font-caption text-caption font-bold text-success-text tabular-nums bg-success-tint px-1.5 py-0.5 rounded">+$29.85</span>
+</div>
+</div>
+<!-- Row 2: Stop Loss (Loss for Short: Price higher) -->
+<div class="flex items-center justify-between py-1 px-1.5 bg-surface rounded-lg border border-border-hairline">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-danger-text"></span>
+<span class="font-caption text-caption text-text-secondary">Stop loss</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption font-bold text-text-primary tabular-nums">$3,420.00</span>
+<span class="text-[12px] font-caption text-text-tertiary">+2.09%</span>
+<span class="font-caption text-caption font-bold text-danger-text tabular-nums bg-danger-tint px-1.5 py-0.5 rounded">-$10.45</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ticket Footer Postmark Receipt Stamp -->
+<div class="bg-surface-alt/40 border-t border-border-hairline px-4 py-2 flex items-center justify-between text-[12px] font-caption text-text-tertiary">
+<span>Route: Perp V2 Postal Desk</span>
+<span class="font-mono">DISPATCH #8821</span>
+</div>
+</section>
+<!-- Action Area -->
+<section class="mt-1 flex flex-col items-center gap-2.5">
+<!-- Quiet Note Text -->
+<p class="font-caption text-[12px] text-text-tertiary text-center flex items-center gap-1.5">
+<span>Collateral: $100.00</span>
+<span class="w-1 h-1 rounded-full bg-border-control"></span>
+<span>No wallet signature required</span>
+</p>
+<!-- Primary CTA: 56px Full-Width Bright Lime Pill -->
+<button class="w-full h-14 bg-primary-container hover:bg-primary-fixed active:bg-accent-pressed text-text-primary font-title text-body font-bold rounded-full flex items-center justify-center gap-2 shadow-sm transition-all duration-150 active:scale-[0.98] border border-border-control/50">
+<span class="material-symbols-outlined text-[20px] text-text-primary">send</span>
+<span class="tracking-tight">Post trade</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Semantic Shell - Shared Component) -->
+<!-- Destination count: 3 | Exactly: Trade (Active), Orders, Positions -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[393px] mx-auto z-50 flex justify-around items-center px-margin pt-2 pb-6 bg-surface border-t border-border-hairline">
+<!-- Tab 1: Trade (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-container text-text-primary rounded-full px-5 py-1 font-medium transition-all active:scale-95" href="#trade">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+<span class="font-caption text-[12px] leading-tight font-bold">Trade</span>
+</a>
+<!-- Tab 2: Orders (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-tertiary px-5 py-1 font-normal hover:bg-surface-alt transition-colors rounded-full active:scale-95" href="#orders">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="font-caption text-[12px] leading-tight">Orders</span>
+</a>
+<!-- Tab 3: Positions (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-tertiary px-5 py-1 font-normal hover:bg-surface-alt transition-colors rounded-full active:scale-95" href="#positions">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<span class="font-caption text-[12px] leading-tight">Positions</span>
+</a>
+</nav>
+</div>
+</body></html>

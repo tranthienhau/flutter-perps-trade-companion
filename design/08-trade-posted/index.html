@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screen 08 - Trade Posted Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#eaefe7",
+            "surface-container-high": "#e5eae2",
+            "text-tertiary": "#626C59",
+            "on-primary-fixed": "#092100",
+            "danger-text": "#CE2020",
+            "warning-text": "#A75906",
+            "tertiary": "#7e5161",
+            "surface-bright": "#f6fbf3",
+            "inverse-on-surface": "#edf2ea",
+            "primary-container": "#9fe870",
+            "text-primary": "#141F0C",
+            "on-secondary-container": "#466d2e",
+            "on-primary-container": "#2e6900",
+            "surface-container-lowest": "#ffffff",
+            "support-peach": "#FFB08A",
+            "on-background": "#181d18",
+            "tertiary-container": "#ffc5d7",
+            "success-text": "#0E7C3A",
+            "surface-dim": "#d6dbd4",
+            "on-tertiary-fixed-variant": "#643a49",
+            "surface-container-highest": "#dfe4dc",
+            "on-secondary-fixed": "#092100",
+            "warning-tint": "#FAEFE1",
+            "surface-tint": "#2f6c00",
+            "surface-alt": "#F2F6EE",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f0f5ed",
+            "on-tertiary-container": "#7b4f5e",
+            "primary-fixed-dim": "#91d963",
+            "accent-pressed": "#4C7036",
+            "inverse-surface": "#2c322d",
+            "accent-fill": "#557D3C",
+            "primary": "#2f6c00",
+            "success-tint": "#E3F4E9",
+            "outline-variant": "#c1cab5",
+            "text-secondary": "#4A5541",
+            "on-surface-variant": "#41493a",
+            "surface": "#FFFFFF",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#acf67c",
+            "on-secondary-fixed-variant": "#2b5014",
+            "secondary-container": "#bfed9f",
+            "inverse-primary": "#91d963",
+            "border-control": "#749F6F",
+            "surface-variant": "#dfe4dc",
+            "on-secondary": "#ffffff",
+            "background": "#F7FCF4",
+            "error-container": "#ffdad6",
+            "data-series": "#FF5F03",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#a7d388",
+            "danger-tint": "#FBE5E5",
+            "accent-tint": "#F2FCEB",
+            "secondary-fixed": "#c2f0a2",
+            "secondary": "#42682a",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "on-tertiary-fixed": "#31101e",
+            "tertiary-fixed": "#ffd9e3",
+            "outline": "#717a68",
+            "on-primary": "#ffffff",
+            "on-surface": "#181d18",
+            "on-primary-fixed-variant": "#225100",
+            "border-hairline": "#E3E9DE"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "16px",
+            "space-sm": "8px",
+            "space-lg": "24px",
+            "margin": "20px",
+            "space-xl": "32px",
+            "space-xs": "4px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "display": ["Familjen Grotesk", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "title": ["Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "display": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "500"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "label": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "title": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    .postal-perforation-edge {
+      background-image: radial-gradient(circle at 10px 0px, #F7FCF4 6px, transparent 6.5px);
+      background-size: 20px 12px;
+      background-position: center top;
+      background-repeat: repeat-x;
+    }
+
+    .gentle-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased min-h-screen flex justify-center items-center p-0 m-0 select-none">
+<!-- Mobile Container: 393px x 852px viewport -->
+<main class="w-full max-w-[393px] h-[852px] bg-background relative flex flex-col justify-between overflow-hidden shadow-2xl">
+<!-- Top Bar / Status Header -->
+<header class="pt-[54px] px-margin flex items-center justify-between z-10">
+<!-- Left: Postmark Icon Mark & Branding -->
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full border border-border-hairline bg-surface flex items-center justify-center text-text-primary">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display font-bold text-[13px] tracking-widest text-text-primary leading-none uppercase">DISPATCH</span>
+<span class="font-mono text-[12px] text-text-tertiary tracking-wider mt-0.5">EST. 2024</span>
+</div>
+</div>
+<!-- Right: Close Button -->
+<button aria-label="Dismiss confirmation" class="w-10 h-10 rounded-full bg-surface border border-border-hairline flex items-center justify-center text-text-primary hover:bg-surface-alt active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</header>
+<!-- Scrollable Canvas Area (Hero + Ticket) -->
+<div class="flex-1 flex flex-col items-center justify-start px-margin pt-4 pb-2 overflow-y-auto">
+<!-- Hero Focal Area: 2D Circular Postal Stamp -->
+<section class="flex flex-col items-center w-full my-auto py-1">
+<div class="relative w-32 h-32 flex items-center justify-center mb-3">
+<!-- Ambient stamp ring background -->
+<div class="absolute inset-0 rounded-full border-2 border-dashed border-primary-container bg-accent-tint/50"></div>
+<!-- Outer Stamp SVG with text along path -->
+<svg class="w-32 h-32 absolute inset-0 -rotate-12 pointer-events-none" viewbox="0 0 140 140">
+<defs>
+<path d="M 70, 70 m -52, 0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0" id="stamp-circular-path"></path>
+</defs>
+<!-- Concentric rings -->
+<circle cx="70" cy="70" fill="none" r="63" stroke="#141F0C" stroke-dasharray="3 2" stroke-width="1.5"></circle>
+<circle cx="70" cy="70" fill="none" r="59" stroke="#141F0C" stroke-width="1"></circle>
+<circle cx="70" cy="70" fill="none" r="41" stroke="#9FE870" stroke-width="2.5"></circle>
+<!-- Circular Path Text -->
+<text fill="#141F0C" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="600" letter-spacing="2.6">
+<textpath href="#stamp-circular-path" startoffset="50%" text-anchor="middle">
+                POSTED · 26 OCT · 14:02 · DISPATCH
+              </textpath>
+</text>
+</svg>
+<!-- Flat 2D Center Graphic: Paper Plane emerging from Envelope -->
+<div class="relative w-16 h-16 rounded-full bg-surface border border-border-hairline flex items-center justify-center shadow-sm">
+<svg class="w-10 h-10 text-text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<!-- Envelope Body -->
+<rect fill="#F7FCF4" height="22" rx="3" stroke="#141F0C" stroke-width="1.75" width="32" x="8" y="16"></rect>
+<path d="M8 20L24 30L40 20" stroke="#141F0C" stroke-linejoin="round" stroke-width="1.75"></path>
+<!-- Envelope flap folded down -->
+<path d="M8 38L18 28" stroke="#E3E9DE" stroke-width="1.5"></path>
+<path d="M40 38L30 28" stroke="#E3E9DE" stroke-width="1.5"></path>
+<!-- Flat Minimal Paper Plane soaring upward -->
+<path d="M25 8L37 19L27 19.5L25 24L22.5 17.5L25 8Z" fill="#9FE870" stroke="#141F0C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M25 8L27 19.5" stroke="#141F0C" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+<!-- Headline & Subtitle -->
+<h1 class="font-display font-bold text-[24px] leading-tight text-text-primary tracking-tight text-center">
+          Your trade is on its way
+        </h1>
+<p class="font-body text-[14px] text-text-secondary text-center mt-1">
+          Sent to the exchange. No wallet pop-up needed.
+        </p>
+</section>
+<!-- Receipt Ticket Card with Postage Perforation -->
+<section class="w-full relative bg-surface rounded-2xl gentle-shadow border border-border-hairline overflow-hidden pt-4 pb-4 px-5 my-auto">
+<!-- Scalloped postage perforation top strip -->
+<div class="postal-perforation-edge absolute top-0 left-0 right-0 h-3"></div>
+<!-- Receipt Header -->
+<div class="flex items-center justify-between border-b border-border-hairline pb-3 pt-1">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-text-tertiary text-[15px]">confirmation_number</span>
+<span class="font-mono text-[12px] font-semibold tracking-wider text-text-tertiary uppercase">EXECUTION RECEIPT</span>
+</div>
+<div class="bg-accent-tint text-accent-fill font-mono text-[12px] font-bold px-2 py-0.5 rounded border border-border-control/20 tracking-wider">
+            AIRMAIL / CERTIFIED
+          </div>
+</div>
+<!-- Ticket Rows -->
+<div class="divide-y divide-border-hairline/70">
+<!-- Market / Position -->
+<div class="py-2.5 flex items-center justify-between">
+<span class="font-body text-caption text-text-tertiary">Position</span>
+<div class="flex items-center space-x-2">
+<span class="font-display font-bold text-[16px] text-text-primary tracking-tight">Long BTC · 10x</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[12px] font-semibold bg-success-tint text-success-text">
+<span class="material-symbols-outlined text-[13px] mr-0.5">arrow_upward</span>
+                LONG
+              </span>
+</div>
+</div>
+<!-- Bet Size -->
+<div class="py-2.5 flex items-center justify-between">
+<span class="font-body text-caption text-text-tertiary">Bet Size</span>
+<span class="font-mono font-semibold text-[14px] text-text-primary">$250.00</span>
+</div>
+<!-- Execution Price -->
+<div class="py-2.5 flex items-center justify-between">
+<span class="font-body text-caption text-text-tertiary">Execution Price</span>
+<span class="font-mono font-semibold text-[14px] text-text-primary">$67,418.20</span>
+</div>
+<!-- Est. Fee -->
+<div class="py-2.5 flex items-center justify-between">
+<span class="font-body text-caption text-text-tertiary">Est. Fee</span>
+<div class="flex items-center space-x-1.5">
+<span class="font-mono font-semibold text-[14px] text-text-primary">$0.00</span>
+<span class="text-[12px] font-label text-success-text bg-success-tint px-1.5 py-0.2 rounded font-medium">Zero Fee</span>
+</div>
+</div>
+<!-- Status -->
+<div class="pt-2.5 pb-1 flex items-center justify-between">
+<span class="font-body text-caption text-text-tertiary">Status</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-semibold bg-success-tint text-success-text">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text mr-1.5 animate-pulse"></span>
+              Open
+            </span>
+</div>
+</div>
+<!-- Receipt bottom footer with simulated post barcode & identifier -->
+<div class="mt-3 pt-3 border-t border-dashed border-border-hairline flex flex-col items-center">
+<!-- Vector 2D Postal Barcode Bars -->
+<div class="flex items-center space-x-[3px] h-5 mb-1.5 opacity-70">
+<div class="w-[2px] h-full bg-text-primary"></div>
+<div class="w-[1px] h-3 bg-text-primary"></div>
+<div class="w-[3px] h-full bg-text-primary"></div>
+<div class="w-[1px] h-4 bg-text-primary"></div>
+<div class="w-[2px] h-full bg-text-primary"></div>
+<div class="w-[1px] h-2 bg-text-primary"></div>
+<div class="w-[4px] h-full bg-text-primary"></div>
+<div class="w-[2px] h-4 bg-text-primary"></div>
+<div class="w-[1px] h-full bg-text-primary"></div>
+<div class="w-[3px] h-3 bg-text-primary"></div>
+<div class="w-[1px] h-full bg-text-primary"></div>
+<div class="w-[2px] h-2 bg-text-primary"></div>
+<div class="w-[4px] h-full bg-text-primary"></div>
+<div class="w-[1px] h-4 bg-text-primary"></div>
+<div class="w-[2px] h-full bg-text-primary"></div>
+</div>
+<span class="font-mono text-[12px] tracking-wider text-text-tertiary">
+            DISPATCH-TX #88219-B · EIP-4361 VERIFIED
+          </span>
+</div>
+</section>
+</div>
+<!-- Bottom Action Buttons: Anchored with mobile safe area -->
+<footer class="w-full px-margin pb-[34px] pt-2 flex flex-col space-y-2.5 z-10 bg-background">
+<!-- Primary CTA: 56px Full-width Pill in bright lime -->
+<button class="w-full h-14 bg-primary-container hover:bg-primary-fixed active:scale-[0.98] transition-transform rounded-full flex items-center justify-center space-x-2 shadow-sm" type="button">
+<span class="font-label font-bold text-body text-text-primary">View position</span>
+<span class="material-symbols-outlined text-text-primary text-[20px]">layers</span>
+</button>
+<!-- Secondary CTA: 52px Full-width White Pill with 1.5px ink border -->
+<button class="w-full h-[52px] bg-surface hover:bg-surface-alt active:scale-[0.98] transition-transform rounded-full border-[1.5px] border-text-primary flex items-center justify-center" type="button">
+<span class="font-label font-semibold text-label text-text-primary">New trade</span>
+</button>
+<!-- Quiet Proof Caption -->
+<p class="font-caption text-[12px] text-text-tertiary text-center pt-0.5">
+        Settled on-chain · No further signature required
+      </p>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch - Grant Trading Permission</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "text-primary": "#141F0C",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#466d2e",
+            "inverse-primary": "#91d963",
+            "success-tint": "#E3F4E9",
+            "on-tertiary-fixed": "#31101e",
+            "secondary-fixed-dim": "#a7d388",
+            "tertiary-fixed": "#ffd9e3",
+            "on-tertiary-fixed-variant": "#643a49",
+            "error-container": "#ffdad6",
+            "primary": "#2f6c00",
+            "on-primary-fixed-variant": "#225100",
+            "on-surface": "#181d18",
+            "on-secondary-fixed-variant": "#2b5014",
+            "success-text": "#0E7C3A",
+            "secondary-fixed": "#c2f0a2",
+            "border-hairline": "#E3E9DE",
+            "accent-pressed": "#4C7036",
+            "surface-container-high": "#e5eae2",
+            "primary-fixed": "#acf67c",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#092100",
+            "outline-variant": "#c1cab5",
+            "inverse-on-surface": "#edf2ea",
+            "surface-container": "#eaefe7",
+            "text-tertiary": "#626C59",
+            "data-series": "#FF5F03",
+            "on-primary": "#ffffff",
+            "background": "#F7FCF4",
+            "secondary": "#42682a",
+            "accent-fill": "#557D3C",
+            "warning-tint": "#FAEFE1",
+            "surface-dim": "#d6dbd4",
+            "surface-container-highest": "#dfe4dc",
+            "secondary-container": "#bfed9f",
+            "inverse-surface": "#2c322d",
+            "tertiary-container": "#ffc5d7",
+            "surface-container-low": "#f0f5ed",
+            "on-surface-variant": "#41493a",
+            "danger-tint": "#FBE5E5",
+            "surface-tint": "#2f6c00",
+            "primary-fixed-dim": "#91d963",
+            "on-secondary-fixed": "#092100",
+            "on-primary-container": "#2e6900",
+            "surface-container-lowest": "#ffffff",
+            "support-peach": "#FFB08A",
+            "surface-alt": "#F2F6EE",
+            "primary-container": "#9fe870",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "text-secondary": "#4A5541",
+            "outline": "#717a68",
+            "on-tertiary-container": "#7b4f5e",
+            "accent-tint": "#F2FCEB",
+            "surface-bright": "#f6fbf3",
+            "tertiary": "#7e5161",
+            "on-background": "#181d18",
+            "border-control": "#749F6F",
+            "warning-text": "#A75906",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "surface": "#FFFFFF",
+            "on-secondary": "#ffffff",
+            "danger-text": "#CE2020",
+            "surface-variant": "#dfe4dc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "gutter": "16px",
+            "margin": "20px"
+          },
+          "fontFamily": {
+            "display": ["Familjen Grotesk", "sans-serif"],
+            "title": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+          },
+          "boxShadow": {
+            "sheet": "0 -8px 32px rgba(20, 31, 12, 0.12), 0 -2px 6px rgba(20, 31, 12, 0.04)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .postmark-wavy {
+      background-image: radial-gradient(circle at 10px 10px, transparent 8px, #E3E9DE 9px, transparent 10px);
+      background-size: 20px 20px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#10190a] min-h-screen flex justify-center items-center font-body text-text-primary antialiased selection:bg-primary-container">
+<!-- Mobile Device Shell (393px × 852px) -->
+<div class="relative w-[393px] h-[852px] overflow-hidden bg-background shadow-2xl flex flex-col justify-end">
+<!-- 1. Background Mock: Blurred Underneath Trading Canvas (Screen 05/06) -->
+<div class="absolute inset-0 w-full h-full pointer-events-none filter blur-[6px] opacity-40 select-none bg-surface-alt">
+<!-- Simulated Header -->
+<div class="h-14 px-margin flex items-center justify-between border-b border-border-hairline bg-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-primary text-xl">mail</span>
+<span class="font-display font-bold text-title text-text-primary tracking-tight">Dispatch</span>
+</div>
+<div class="h-7 px-2.5 rounded-full bg-surface-container flex items-center gap-1.5 border border-border-hairline text-caption font-label text-text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>0x84f...c19</span>
+</div>
+</div>
+<!-- Simulated Pair & Rate -->
+<div class="p-margin space-y-4">
+<div class="bg-surface rounded-xl p-4 border border-border-hairline shadow-sm">
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-caption font-caption text-text-tertiary">ETH / USD Perp</span>
+<span class="text-caption font-caption text-success-text font-semibold">+3.42%</span>
+</div>
+<div class="text-display font-display text-text-primary tabular-nums">$3,428.15</div>
+</div>
+<div class="h-36 rounded-xl bg-surface border border-border-hairline p-4 flex flex-col justify-between">
+<div class="flex gap-2">
+<div class="h-6 w-14 bg-surface-container rounded-full"></div>
+<div class="h-6 w-14 bg-surface-container rounded-full"></div>
+</div>
+<div class="h-20 w-full bg-surface-alt rounded-lg"></div>
+</div>
+<div class="bg-surface rounded-xl p-4 border border-border-hairline space-y-3">
+<div class="h-12 bg-surface-container-low rounded-lg"></div>
+<div class="h-12 bg-primary-container rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- 2. Modal Scrim / Backdrop -->
+<div class="absolute inset-0 bg-[#141F0C]/45 backdrop-blur-[3px] transition-opacity z-10"></div>
+<!-- 3. Permission Sheet (Sheet 07: 30-Day Session Key) -->
+<div class="relative z-20 w-full bg-surface rounded-t-[28px] shadow-sheet border-t border-border-hairline/80 flex flex-col max-h-[792px] animate-in slide-in-from-bottom duration-300">
+<!-- Grabber Bar -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 bg-outline-variant/60 rounded-full"></div>
+</div>
+<!-- Sheet Header Toolbar -->
+<div class="px-margin pt-2 pb-3 flex items-center justify-between">
+<!-- Postal Step Tag -->
+<div class="flex items-center gap-2">
+<div aria-label="Step progress indicator" class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-success-text"></span>
+<span class="w-2 h-2 rounded-full bg-success-text"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-text-primary ring-2 ring-primary-container ring-offset-1 ring-offset-surface"></span>
+</div>
+<span class="font-caption text-caption text-text-secondary pl-1 font-semibold tracking-wide uppercase">Step 3 of 3</span>
+</div>
+<!-- Close Action (Task-focused dismissal) -->
+<button aria-label="Dismiss sheet" class="w-8 h-8 rounded-full bg-surface-alt hover:bg-surface-container text-text-primary flex items-center justify-center transition-colors active:scale-95 border border-border-hairline" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Content Container -->
+<div class="px-margin pb-6 overflow-y-auto space-y-4">
+<!-- Sheet Titles -->
+<div class="space-y-1">
+<h1 class="font-display text-title text-text-primary font-bold tracking-tight">Allow trading for 30 days</h1>
+<p class="font-body text-label text-text-secondary leading-snug">
+            A session key lets Dispatch post trades without prompting your wallet each time.
+          </p>
+</div>
+<!-- Postal Focal Element: Postmark Stamp Ring -->
+<div class="relative bg-surface-bright rounded-2xl border border-border-hairline p-4 overflow-hidden flex items-center justify-between">
+<!-- Postal Stamp Graphic / Ring -->
+<div class="flex items-center gap-3.5">
+<div class="relative w-16 h-16 rounded-full border-2 border-dashed border-primary-container bg-surface flex flex-col items-center justify-center shadow-sm shrink-0">
+<div class="w-12 h-12 rounded-full border border-primary/20 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+<span class="text-[12px] font-bold text-text-tertiary tracking-tighter uppercase leading-none mt-0.5">AUTH</span>
+</div>
+</div>
+<!-- Big Number and Subtitle -->
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-display text-display text-text-primary tracking-tight tabular-nums font-bold">30 days</span>
+</div>
+<span class="font-caption text-caption text-text-secondary font-medium -mt-0.5">
+                until 25 Nov 2026 • 23:59 UTC
+              </span>
+</div>
+</div>
+<!-- Postal Cancellation Motif Lines -->
+<div class="hidden sm:flex flex-col gap-1 pr-1 opacity-40">
+<div class="w-7 h-[2px] bg-outline rounded-full"></div>
+<div class="w-10 h-[2px] bg-outline rounded-full"></div>
+<div class="w-6 h-[2px] bg-outline rounded-full"></div>
+</div>
+</div>
+<!-- Two Capability Columns / Cards -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Allowed Scope -->
+<div class="bg-surface rounded-xl p-3 border border-border-hairline shadow-sm space-y-2.5">
+<div class="flex items-center gap-1.5 pb-1 border-b border-border-hairline">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+<h2 class="font-label text-caption font-bold text-text-primary">Dispatch can</h2>
+</div>
+<ul class="space-y-2">
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-success-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Open positions</span>
+</li>
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-success-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Close positions</span>
+</li>
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-success-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Set TP &amp; SL</span>
+</li>
+</ul>
+</div>
+<!-- Prohibited Scope -->
+<div class="bg-surface rounded-xl p-3 border border-border-hairline shadow-sm space-y-2.5">
+<div class="flex items-center gap-1.5 pb-1 border-b border-border-hairline">
+<span class="w-1.5 h-1.5 rounded-full bg-danger-text"></span>
+<h2 class="font-label text-caption font-bold text-text-primary">Dispatch can never</h2>
+</div>
+<ul class="space-y-1.5">
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-danger-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span>Deposit</span>
+</li>
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-danger-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span>Withdraw funds</span>
+</li>
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-danger-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span>Transfer tokens</span>
+</li>
+<li class="flex items-start gap-1.5 text-caption font-body text-text-secondary leading-tight">
+<span class="material-symbols-outlined text-danger-text text-base shrink-0" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span>Stake or claim</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Security / Info Notice Card -->
+<div class="bg-surface-alt rounded-xl p-3 border border-border-hairline flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface border border-border-hairline flex items-center justify-center shrink-0 text-text-secondary">
+<span class="material-symbols-outlined text-base">key</span>
+</div>
+<p class="font-caption text-caption text-text-secondary leading-snug">
+            Revoke any time from your wallet settings. You will not sign each trade manually.
+          </p>
+</div>
+<!-- Primary Action Section -->
+<div class="pt-1 space-y-2.5">
+<button class="w-full h-14 bg-primary-container hover:bg-primary-fixed-dim text-text-primary font-title text-body font-semibold rounded-full flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-xl">edit_document</span>
+<span>Sign permission</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 text-caption font-caption text-text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>Waiting for wallet prompt (Signature 2 of 2)...</span>
+</div>
+</div>
+</div>
+<!-- Safe Area Inset Spacer for mobile -->
+<div class="h-5 w-full bg-surface"></div>
+</div>
+</div>
+</body></html>

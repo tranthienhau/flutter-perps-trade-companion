@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch - Orders</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Familjen Grotesk (Display) & Inter (UI/Labels) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "danger-tint": "#FBE5E5",
+            "surface-alt": "#F2F6EE",
+            "surface-container-highest": "#dfe4dc",
+            "on-surface": "#181d18",
+            "primary": "#2f6c00",
+            "accent-fill": "#557D3C",
+            "text-secondary": "#4A5541",
+            "outline": "#717a68",
+            "on-secondary-fixed-variant": "#2b5014",
+            "on-primary-fixed-variant": "#225100",
+            "warning-tint": "#FAEFE1",
+            "text-primary": "#141F0C",
+            "on-secondary-container": "#466d2e",
+            "surface-container": "#eaefe7",
+            "accent-pressed": "#4C7036",
+            "surface-container-high": "#e5eae2",
+            "primary-fixed-dim": "#91d963",
+            "success-text": "#0E7C3A",
+            "data-series": "#FF5F03",
+            "secondary-container": "#bfed9f",
+            "on-surface-variant": "#41493a",
+            "border-control": "#749F6F",
+            "primary-container": "#9fe870",
+            "inverse-on-surface": "#edf2ea",
+            "surface-dim": "#d6dbd4",
+            "danger-text": "#CE2020",
+            "secondary-fixed-dim": "#a7d388",
+            "warning-text": "#A75906",
+            "surface-tint": "#2f6c00",
+            "on-error-container": "#93000a",
+            "secondary": "#42682a",
+            "inverse-surface": "#2c322d",
+            "text-tertiary": "#626C59",
+            "on-background": "#181d18",
+            "tertiary-container": "#ffc5d7",
+            "surface-container-low": "#f0f5ed",
+            "surface-bright": "#f6fbf3",
+            "tertiary": "#7e5161",
+            "on-secondary-fixed": "#092100",
+            "tertiary-fixed": "#ffd9e3",
+            "surface": "#FFFFFF",
+            "success-tint": "#E3F4E9",
+            "on-primary-fixed": "#092100",
+            "on-tertiary-fixed": "#31101e",
+            "accent-tint": "#F2FCEB",
+            "border-hairline": "#E3E9DE",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#dfe4dc",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#643a49",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#2e6900",
+            "support-peach": "#FFB08A",
+            "outline-variant": "#c1cab5",
+            "secondary-fixed": "#c2f0a2",
+            "on-tertiary-container": "#7b4f5e",
+            "on-error": "#ffffff",
+            "inverse-primary": "#91d963",
+            "error": "#ba1a1a",
+            "background": "#F7FCF4",
+            "primary-fixed": "#acf67c",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "32px",
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "space-xs": "4px",
+            "space-md": "16px",
+            "margin": "20px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "display": [
+              "Familjen Grotesk", "sans-serif"
+            ],
+            "title": [
+              "Inter", "sans-serif"
+            ],
+            "label": [
+              "Inter", "sans-serif"
+            ],
+            "body": [
+              "Inter", "sans-serif"
+            ],
+            "caption": [
+              "Inter", "sans-serif"
+            ]
+          },
+          "fontSize": {
+            "display": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "title": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "label": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "500"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .stamp-scallop-top {
+      background-image: radial-gradient(circle at 10px 0, transparent 0, transparent 4px, #FFFFFF 4.5px);
+      background-size: 20px 20px;
+      background-repeat: repeat-x;
+    }
+    .postal-shadow {
+      box-shadow: 0 1px 2px rgba(20,31,12,.04), 0 8px 24px rgba(20,31,12,.06);
+    }
+    .num-tabular {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased flex justify-center min-h-screen">
+<!-- Mobile Container Shell (393x852 nominal viewport) -->
+<div class="w-full max-w-[393px] min-h-screen bg-background relative flex flex-col pb-28">
+<!-- Top App Bar / Header -->
+<header class="fixed top-0 left-0 w-full max-w-[393px] z-40 bg-surface/90 backdrop-blur-md px-margin pt-4 pb-3 flex justify-between items-center transition-colors">
+<div class="flex items-center space-x-2.5">
+<!-- Circular Postmark Stamp Badge -->
+<div class="relative w-8 h-8 rounded-full border border-dashed border-border-control flex items-center justify-center bg-surface-alt">
+<span class="material-symbols-outlined text-[16px] text-accent-fill select-none">mail</span>
+<span class="absolute -top-1 -right-1 flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[12px] font-caption tracking-wider uppercase text-text-tertiary font-semibold leading-none">POSTAL DESK · ORDERS</span>
+<h1 class="font-display text-title font-bold text-text-primary tracking-tight leading-snug">Dispatch</h1>
+</div>
+</div>
+<!-- Connected Wallet Pill Chip -->
+<div class="flex items-center space-x-1.5 bg-surface-alt border border-border-hairline rounded-full px-2.5 py-1 text-caption text-text-secondary shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+<span class="font-caption text-xs font-medium tracking-tight num-tabular">0x7a3f...91c2</span>
+<button class="material-symbols-outlined text-[14px] text-text-tertiary hover:text-text-primary ml-0.5">expand_more</button>
+</div>
+</header>
+<!-- Main Content Canvas (Scrollable) -->
+<main class="flex-1 px-margin pt-20 space-y-6">
+<!-- Postal Title & Sub-heading -->
+<div class="flex items-baseline justify-between pt-1">
+<div>
+<h2 class="font-display text-3xl font-bold text-text-primary tracking-tight">Active Orders</h2>
+<p class="font-body text-caption text-text-tertiary mt-0.5">Automated triggers dispatched to the order book</p>
+</div>
+<div class="inline-flex items-center px-2 py-0.5 rounded border border-border-hairline bg-surface text-[12px] text-text-tertiary font-caption uppercase tracking-wider">
+          Desk #04
+        </div>
+</div>
+<!-- Segmented Control / Filter -->
+<div class="w-full bg-surface-alt p-1 rounded-full flex items-center border border-border-hairline">
+<button class="flex-1 py-1.5 rounded-full bg-surface text-text-primary font-label text-caption font-semibold flex items-center justify-center space-x-1.5 shadow-sm transition-all">
+<span>Waiting</span>
+<span class="bg-primary-container text-text-primary text-[12px] font-bold px-1.5 py-0.2 rounded-full leading-tight">2</span>
+</button>
+<button class="flex-1 py-1.5 rounded-full text-text-tertiary font-label text-caption font-medium flex items-center justify-center space-x-1.5 hover:text-text-primary transition-colors">
+<span>Completed</span>
+<span class="bg-surface-container-high text-text-secondary text-[12px] font-medium px-1.5 py-0.2 rounded-full leading-tight">3</span>
+</button>
+</div>
+<!-- SECTION 1: Waiting for price (Trigger Orders) -->
+<section class="space-y-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5 text-text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-text-tertiary">schedule</span>
+<span class="font-label text-xs uppercase tracking-wider font-semibold text-text-tertiary">WAITING FOR PRICE (2)</span>
+</div>
+<span class="text-[12px] text-text-tertiary font-caption">Live Syncing</span>
+</div>
+<!-- Trigger Order Card 1 (Short ETH 5x) -->
+<div class="relative bg-surface rounded-xl border border-border-hairline postal-shadow overflow-hidden pt-1">
+<!-- Postal Scalloped / Perforated Teeth Top Edge Accent -->
+<div class="h-1.5 w-full stamp-scallop-top opacity-90 -mt-1"></div>
+<div class="p-4 space-y-3.5">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-danger-tint text-danger-text text-caption font-semibold">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+<span>Short ETH · 5x</span>
+</span>
+<span class="font-caption text-[12px] text-text-tertiary font-mono tracking-wider">DISPATCH #8821</span>
+</div>
+<button class="text-caption text-xs font-medium text-text-tertiary hover:text-danger-text underline decoration-dashed underline-offset-2 transition-colors">
+                Cancel
+              </button>
+</div>
+<!-- Trigger Target Headline -->
+<div>
+<span class="text-[12px] font-label text-text-tertiary uppercase tracking-wider block font-medium">When price hits</span>
+<div class="flex items-baseline space-x-2 mt-0.5">
+<span class="font-display text-3xl font-bold text-text-primary tracking-tight num-tabular">$3,350.00</span>
+<span class="text-xs font-caption text-text-tertiary">Limit Entry</span>
+</div>
+</div>
+<!-- Live Distance & Progress Postal Track -->
+<div class="bg-surface-alt rounded-lg p-2.5 space-y-1.5 border border-border-hairline">
+<div class="flex justify-between items-center text-xs font-caption">
+<span class="text-text-secondary">Current: <span class="font-semibold text-text-primary num-tabular">$3,284.10</span></span>
+<span class="font-medium text-accent-fill num-tabular">2.0% away</span>
+</div>
+<!-- Track progress bar -->
+<div class="w-full bg-surface-container rounded-full h-1.5 relative overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 78%"></div>
+<div class="absolute top-0 right-[22%] -mt-0.5 w-2.5 h-2.5 rounded-full bg-primary-container border-2 border-primary"></div>
+</div>
+</div>
+<!-- Attached Orders (TP / SL conditions) -->
+<div class="flex items-center justify-between pt-1 border-t border-dashed border-border-hairline">
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-success-tint text-success-text text-[12px] font-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>TP $3,150</span>
+</span>
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-danger-tint text-danger-text text-[12px] font-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+<span>SL $3,420</span>
+</span>
+</div>
+<span class="text-[12px] text-text-tertiary font-caption">Size: 1.25 ETH</span>
+</div>
+</div>
+</div>
+<!-- Trigger Order Card 2 (Long SOL 3x) -->
+<div class="relative bg-surface rounded-xl border border-border-hairline postal-shadow overflow-hidden pt-1">
+<!-- Postal Scalloped / Perforated Teeth Top Edge Accent -->
+<div class="h-1.5 w-full stamp-scallop-top opacity-90 -mt-1"></div>
+<div class="p-4 space-y-3.5">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-success-tint text-success-text text-caption font-semibold">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>Long SOL · 3x</span>
+</span>
+<span class="font-caption text-[12px] text-text-tertiary font-mono tracking-wider">DISPATCH #8819</span>
+</div>
+<button class="text-caption text-xs font-medium text-text-tertiary hover:text-danger-text underline decoration-dashed underline-offset-2 transition-colors">
+                Cancel
+              </button>
+</div>
+<!-- Trigger Target Headline -->
+<div>
+<span class="text-[12px] font-label text-text-tertiary uppercase tracking-wider block font-medium">When price hits</span>
+<div class="flex items-baseline space-x-2 mt-0.5">
+<span class="font-display text-3xl font-bold text-text-primary tracking-tight num-tabular">$142.00</span>
+<span class="text-xs font-caption text-text-tertiary">Market Trigger</span>
+</div>
+</div>
+<!-- Live Distance & Progress Postal Track -->
+<div class="bg-surface-alt rounded-lg p-2.5 space-y-1.5 border border-border-hairline">
+<div class="flex justify-between items-center text-xs font-caption">
+<span class="text-text-secondary">Current: <span class="font-semibold text-text-primary num-tabular">$148.62</span></span>
+<span class="font-medium text-accent-fill num-tabular">4.5% away</span>
+</div>
+<!-- Track progress bar -->
+<div class="w-full bg-surface-container rounded-full h-1.5 relative overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 55%"></div>
+<div class="absolute top-0 right-[45%] -mt-0.5 w-2.5 h-2.5 rounded-full bg-primary-container border-2 border-primary"></div>
+</div>
+</div>
+<!-- Attached Orders (TP / SL conditions) -->
+<div class="flex items-center justify-between pt-1 border-t border-dashed border-border-hairline">
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-success-tint text-success-text text-[12px] font-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>TP $165.00</span>
+</span>
+<span class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-danger-tint text-danger-text text-[12px] font-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+<span>SL $134.00</span>
+</span>
+</div>
+<span class="text-[12px] text-text-tertiary font-caption">Size: 45 SOL</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Completed (Order History Receipt Card) -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5 text-text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-text-tertiary">task_alt</span>
+<span class="font-label text-xs uppercase tracking-wider font-semibold text-text-tertiary">COMPLETED (3)</span>
+</div>
+<span class="text-[12px] text-text-tertiary font-caption">Dispatched Ledger</span>
+</div>
+<div class="bg-surface rounded-xl border border-border-hairline postal-shadow p-3.5 divide-y divide-dashed divide-border-hairline">
+<!-- Receipt Row 1 -->
+<div class="py-2.5 first:pt-0 last:pb-0 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<!-- Postmark Stamp Badge -->
+<div class="w-8 h-8 rounded-full border border-border-hairline flex flex-col items-center justify-center bg-surface-alt text-success-text">
+<span class="material-symbols-outlined text-[15px]">mark_email_read</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label text-sm font-semibold text-text-primary">Long BTC · 10x</span>
+<span class="text-[12px] text-text-tertiary font-caption">· 24 Oct</span>
+</div>
+<div class="text-[12px] font-caption text-text-tertiary">Closed by take profit</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded font-display font-bold text-sm text-success-text bg-success-tint num-tabular">+$84.20</span>
+</div>
+</div>
+<!-- Receipt Row 2 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<!-- Postmark Stamp Badge -->
+<div class="w-8 h-8 rounded-full border border-border-hairline flex flex-col items-center justify-center bg-surface-alt text-danger-text">
+<span class="material-symbols-outlined text-[15px]">cancel_presentation</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label text-sm font-semibold text-text-primary">Short SOL · 4x</span>
+<span class="text-[12px] text-text-tertiary font-caption">· 22 Oct</span>
+</div>
+<div class="text-[12px] font-caption text-text-tertiary">Stopped out</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded font-display font-bold text-sm text-danger-text bg-danger-tint num-tabular">-$12.60</span>
+</div>
+</div>
+<!-- Receipt Row 3 -->
+<div class="py-2.5 last:pb-0 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<!-- Postmark Stamp Badge -->
+<div class="w-8 h-8 rounded-full border border-border-hairline flex flex-col items-center justify-center bg-surface-alt text-accent-fill">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label text-sm font-semibold text-text-primary">Long ETH · 2x</span>
+<span class="text-[12px] text-text-tertiary font-caption">· 21 Oct</span>
+</div>
+<div class="text-[12px] font-caption text-text-tertiary">Closed manually</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded font-display font-bold text-sm text-success-text bg-success-tint num-tabular">+$6.15</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom postal signature / reassurance notice -->
+<div class="pt-2 pb-4 text-center">
+<p class="text-[12px] text-text-tertiary font-caption inline-flex items-center space-x-1">
+<span class="material-symbols-outlined text-[13px] text-text-tertiary">local_post_office</span>
+<span>Trigger orders wait on the exchange until price hits</span>
+</p>
+</div>
+</main>
+<!-- Fixed Bottom Navigation Bar (BottomNavBar Anchor) -->
+<!-- Destination count: 3; Active: Orders; Shell border ban respected; flat no shadows -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin pt-2 pb-8 bg-surface dark:bg-inverse-surface border-t border-border-hairline dark:border-outline-variant">
+<!-- Tab 1: Trade (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal hover:bg-surface-alt dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">swap_horiz</span>
+<span class="text-caption font-caption">Trade</span>
+</a>
+<!-- Tab 2: Orders (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-secondary text-text-primary dark:text-on-secondary rounded-full px-4 py-1.5 font-medium hover:bg-surface-alt dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-caption font-caption font-semibold">Orders</span>
+</a>
+<!-- Tab 3: Positions (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal hover:bg-surface-alt dark:hover:bg-surface-variant transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+<span class="text-caption font-caption">Positions</span>
+</a>
+</nav>
+</div>
+</body></html>

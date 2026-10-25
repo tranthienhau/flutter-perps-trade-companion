@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch - Login</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "warning-tint": "#FAEFE1",
+            "surface-container-high": "#e5eae2",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "on-secondary-fixed-variant": "#2b5014",
+            "on-primary-fixed": "#092100",
+            "inverse-on-surface": "#edf2ea",
+            "surface-bright": "#f6fbf3",
+            "secondary-container": "#bfed9f",
+            "accent-pressed": "#4C7036",
+            "on-background": "#181d18",
+            "accent-fill": "#557D3C",
+            "on-secondary-fixed": "#092100",
+            "on-primary-fixed-variant": "#225100",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#466d2e",
+            "data-series": "#FF5F03",
+            "secondary-fixed": "#c2f0a2",
+            "tertiary": "#7e5161",
+            "outline": "#717a68",
+            "on-surface": "#181d18",
+            "on-tertiary-fixed": "#31101e",
+            "surface": "#FFFFFF",
+            "secondary-fixed-dim": "#a7d388",
+            "primary-fixed-dim": "#91d963",
+            "border-control": "#749F6F",
+            "text-primary": "#141F0C",
+            "surface-tint": "#2f6c00",
+            "danger-tint": "#FBE5E5",
+            "success-text": "#0E7C3A",
+            "surface-variant": "#dfe4dc",
+            "border-hairline": "#E3E9DE",
+            "warning-text": "#A75906",
+            "outline-variant": "#c1cab5",
+            "on-error": "#ffffff",
+            "success-tint": "#E3F4E9",
+            "error-container": "#ffdad6",
+            "secondary": "#42682a",
+            "on-tertiary-container": "#7b4f5e",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#643a49",
+            "surface-container-low": "#f0f5ed",
+            "inverse-surface": "#2c322d",
+            "text-secondary": "#4A5541",
+            "background": "#F7FCF4",
+            "surface-dim": "#d6dbd4",
+            "on-surface-variant": "#41493a",
+            "inverse-primary": "#91d963",
+            "support-peach": "#FFB08A",
+            "surface-container-highest": "#dfe4dc",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "text-tertiary": "#626C59",
+            "accent-tint": "#F2FCEB",
+            "danger-text": "#CE2020",
+            "surface-alt": "#F2F6EE",
+            "primary-fixed": "#acf67c",
+            "on-primary-container": "#2e6900",
+            "surface-container": "#eaefe7",
+            "tertiary-fixed": "#ffd9e3",
+            "primary": "#2f6c00",
+            "tertiary-container": "#ffc5d7",
+            "error": "#ba1a1a",
+            "primary-container": "#9fe870"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "space-md": "16px",
+            "margin": "20px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-sm": "8px",
+            "space-lg": "24px"
+          },
+          "fontFamily": {
+            "body": ["Inter"],
+            "label": ["Inter"],
+            "caption": ["Inter"],
+            "title": ["Inter"],
+            "display": ["Familjen Grotesk"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .soft-paper-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen text-text-primary flex justify-center items-center selection:bg-primary-container selection:text-text-primary">
+<!-- iPhone Mobile Viewport Container (393px × 852px) -->
+<main class="w-[393px] h-[852px] bg-background relative flex flex-col justify-between overflow-hidden shadow-2xl rounded-[48px] border border-border-hairline select-none">
+<!-- Top Safe Area Space (approx 54px) & Header -->
+<header class="pt-12 px-margin pb-2 flex items-center justify-between z-10">
+<div class="flex items-center space-x-2.5">
+<!-- Postmark cancellation stamp emblem -->
+<div class="relative w-8 h-8 rounded-full border border-text-primary/40 flex items-center justify-center p-0.5">
+<svg class="w-full h-full text-text-primary" fill="none" viewbox="0 0 32 32">
+<circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-dasharray="2 1.5" stroke-width="0.75"></circle>
+<circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="0.5"></circle>
+<path d="M7 16H25" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M9 13C12 11 15 15 18 13C21 11 23 15 25 13" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M7 19C10 17 13 21 16 19C19 17 22 21 25 19" stroke="currentColor" stroke-width="0.5"></path>
+<text fill="currentColor" font-family="'Familjen Grotesk', sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.5" text-anchor="middle" x="16" y="17.5">D</text>
+</svg>
+</div>
+<span class="text-title font-title text-text-primary font-semibold tracking-tight">Dispatch</span>
+</div>
+<!-- Postal Code Badge / Status Pill -->
+<div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-surface border border-border-hairline soft-paper-shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="text-caption font-caption text-text-secondary tracking-wide uppercase text-[12px]">v1.0.4</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<div class="flex-1 px-margin flex flex-col justify-start pt-3 space-y-5 z-10">
+<!-- Editorial Image Card: Cream Envelope with Wax Seal -->
+<div class="w-full rounded-[20px] overflow-hidden bg-surface border border-border-hairline soft-paper-shadow p-1.5 relative group">
+<div class="w-full h-[220px] rounded-[15px] overflow-hidden relative bg-surface-alt flex items-center justify-center">
+<img alt="Single cream paper correspondence envelope sealed with bright lime wax seal stamp resting on a minimalist white desk in soft morning sunlight" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5RSg1_k9fpERzFGSaC1ktlG58B7xGG26nleLfif0NLOPVLy2ycZFNyYj5NQ-93y-qk8TRY9WdVq_DvVvxfwrbKHlNiY738m_vUMxWtHvNWrYhzKDzW5Z-oYqWR6wk3kUeCfXbRnEf0n4tTLG75LrOqmxSrvxCVGmDEBz1udvUWvPNCuFfbDiKxFo177UJKWmlV6GbEhoMOgk9AFEsxdTQ1fx4fBUmnsqTHqselbDow2lxe0e5AI3DN42OBPHuYsTMvzsl4Qj-6n6T"/>
+<div class="absolute inset-0 bg-gradient-to-t from-text-primary/10 via-transparent to-transparent pointer-events-none"></div>
+<!-- Subtle stamp motif overlay in top-right corner of image -->
+<div class="absolute top-3 right-3 bg-surface/90 backdrop-blur-sm px-2 py-0.5 rounded border border-border-hairline flex items-center space-x-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-text-secondary">local_post_office</span>
+<span class="text-[12px] font-caption text-text-secondary tracking-wider font-semibold">AIRMAIL</span>
+</div>
+</div>
+</div>
+<!-- Typography Block -->
+<div class="space-y-2 pt-1">
+<h1 class="font-display text-display text-text-primary leading-[1.08] tracking-tight">
+          Trade like sending a letter.
+        </h1>
+<p class="font-body text-body text-text-secondary leading-relaxed">
+          Open and close BTC, ETH and SOL positions in seconds.
+        </p>
+</div>
+<!-- Feature Pill Tags -->
+<div class="flex items-center space-x-2 pt-1 pb-1">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface border border-border-hairline text-caption font-caption text-text-secondary soft-paper-shadow">
+<span class="material-symbols-outlined text-[14px] text-accent-fill mr-1.5">bolt</span>
+          Trade only
+        </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface border border-border-hairline text-caption font-caption text-text-secondary soft-paper-shadow">
+<span class="material-symbols-outlined text-[14px] text-accent-fill mr-1.5">lock</span>
+          No funds held
+        </span>
+</div>
+<!-- Sign In Controls -->
+<div class="space-y-3 pt-2">
+<!-- Apple Button (Primary) -->
+<button class="w-full h-[56px] bg-text-primary text-on-primary rounded-full flex items-center justify-center space-x-3 px-6 hover:bg-black active:scale-[0.98] transition-all duration-150 soft-paper-shadow" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.08-7.7-7.94-12.04-14.58-6.19-9.48-11.04-20.21-14.54-32.18-3.5-11.97-5.25-23.23-5.25-33.8 0-14.13 3.6-26.04 10.79-35.73 7.19-9.69 16.32-14.65 27.38-14.88 4.79 0 10.13 1.25 16.03 3.75 5.9 2.5 9.87 3.86 11.91 4.08 1.83-.22 5.86-1.61 12.09-4.17 6.23-2.56 11.75-3.72 16.55-3.5 12.52.73 22.42 5.37 29.7 13.91-10.96 6.64-16.33 15.68-16.11 27.12.22 8.92 3.64 16.5 10.27 22.75 6.63 6.25 14.51 9.9 23.63 10.96-2.5 7.62-5.54 15.02-9.13 22.21zM119.22 33.15c0-6.84 2.45-13.44 7.35-19.8 4.9-6.36 11.09-10.78 18.57-13.25-.76 6.95-3.32 13.55-7.68 19.8-4.36 6.25-10.45 10.66-18.24 13.25z"></path>
+</svg>
+<span class="text-label font-label font-medium tracking-tight">Continue with Apple</span>
+</button>
+<!-- Google Button (Secondary) -->
+<button class="w-full h-[56px] bg-surface text-text-primary border-[1.5px] border-text-primary rounded-full flex items-center justify-center space-x-3 px-6 hover:bg-surface-alt active:scale-[0.98] transition-all duration-150 soft-paper-shadow" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span class="text-label font-label font-medium tracking-tight">Continue with Google</span>
+</button>
+</div>
+</div>
+<!-- Footnote & Legal Disclaimers (Above Bottom Safe Area ~34px) -->
+<footer class="px-margin pb-9 pt-2 text-center space-y-2 z-10">
+<p class="text-label font-label text-text-tertiary">
+        No email, no password. Dispatch never holds your funds.
+      </p>
+<div class="flex items-center justify-center space-x-2 text-caption font-caption text-text-tertiary">
+<a class="hover:text-text-primary transition-colors duration-150" href="#terms">Terms of Service</a>
+<span class="inline-block w-1 h-1 rounded-full bg-border-hairline"></span>
+<a class="hover:text-text-primary transition-colors duration-150" href="#privacy">Privacy Policy</a>
+</div>
+</footer>
+<!-- iPhone Home Indicator Safe Area Bar -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-[134px] h-[5px] bg-text-primary/20 rounded-full pointer-events-none"></div>
+</main>
+</body></html>

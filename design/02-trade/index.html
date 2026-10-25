@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch - Trade</title>
+<!-- Google Fonts: Familjen Grotesk & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "data-series": "#FF5F03",
+            "border-control": "#749F6F",
+            "success-tint": "#E3F4E9",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#092100",
+            "on-primary": "#ffffff",
+            "on-surface": "#181d18",
+            "border-hairline": "#E3E9DE",
+            "text-secondary": "#4A5541",
+            "accent-fill": "#557D3C",
+            "error": "#ba1a1a",
+            "warning-text": "#A75906",
+            "outline": "#717a68",
+            "on-background": "#181d18",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#2f6c00",
+            "surface-container-low": "#f0f5ed",
+            "secondary-fixed": "#c2f0a2",
+            "background": "#F7FCF4",
+            "primary": "#2f6c00",
+            "surface-container": "#eaefe7",
+            "success-text": "#0E7C3A",
+            "on-secondary-container": "#466d2e",
+            "surface-dim": "#d6dbd4",
+            "on-tertiary-fixed": "#31101e",
+            "primary-fixed-dim": "#91d963",
+            "on-primary-fixed-variant": "#225100",
+            "on-error-container": "#93000a",
+            "accent-tint": "#F2FCEB",
+            "tertiary-fixed": "#ffd9e3",
+            "on-tertiary-fixed-variant": "#643a49",
+            "tertiary-container": "#ffc5d7",
+            "support-peach": "#FFB08A",
+            "secondary-fixed-dim": "#a7d388",
+            "on-tertiary-container": "#7b4f5e",
+            "text-tertiary": "#626C59",
+            "secondary-container": "#bfed9f",
+            "on-secondary-fixed-variant": "#2b5014",
+            "tertiary": "#7e5161",
+            "inverse-primary": "#91d963",
+            "surface-container-lowest": "#ffffff",
+            "danger-tint": "#FBE5E5",
+            "primary-fixed": "#acf67c",
+            "on-surface-variant": "#41493a",
+            "surface-variant": "#dfe4dc",
+            "primary-container": "#9fe870",
+            "surface-container-high": "#e5eae2",
+            "inverse-on-surface": "#edf2ea",
+            "secondary": "#42682a",
+            "text-primary": "#141F0C",
+            "warning-tint": "#FAEFE1",
+            "surface-container-highest": "#dfe4dc",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2c322d",
+            "surface-alt": "#F2F6EE",
+            "on-primary-fixed": "#092100",
+            "outline-variant": "#c1cab5",
+            "surface-bright": "#f6fbf3",
+            "danger-text": "#CE2020",
+            "on-primary-container": "#2e6900",
+            "surface": "#FFFFFF",
+            "accent-pressed": "#4C7036"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "20": "20px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "margin": "20px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-md": "16px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "display": ["Familjen Grotesk", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "title": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "500"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "title": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "label": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Subtle custom card shadow matching design guidance */
+    .postal-card-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+
+    /* Perforated postal stamp edge pattern for ticket feel */
+    .postage-ticket-top {
+      position: relative;
+    }
+    .postage-ticket-top::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 16px;
+      right: 16px;
+      height: 4px;
+      background-image: radial-gradient(circle, #F7FCF4 2.5px, transparent 3px);
+      background-size: 10px 6px;
+      background-repeat: repeat-x;
+    }
+
+    /* Hide standard scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased font-body flex justify-center items-center min-h-screen py-0 sm:py-6 selection:bg-primary-container selection:text-text-primary">
+<!-- iPhone Mobile Viewport Container (393px × 852px) -->
+<main class="w-full max-w-[393px] h-[852px] bg-background relative overflow-hidden flex flex-col justify-between shadow-2xl sm:rounded-[48px] border border-border-hairline">
+<!-- Top Status Bar & App Bar Area -->
+<header class="w-full z-40 bg-surface/95 backdrop-blur-md px-margin pt-3 pb-2.5 border-b border-border-hairline flex flex-col gap-1">
+<!-- Status Notch Dummy Area -->
+<div class="flex justify-between items-center text-[13px] font-semibold tracking-tight text-text-primary px-1 pb-1">
+<span>9:41</span>
+<div class="flex items-center gap-1.5 text-text-primary">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- App Header: Circular Postmark Stamp Mark + "Trade" Title + Settings Icon -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2.5">
+<!-- Circular Postal Mark Badge -->
+<div class="w-8 h-8 rounded-full border border-border-control flex items-center justify-center bg-accent-tint text-text-secondary relative">
+<span class="material-symbols-outlined text-[17px] text-accent-fill" data-icon="mail">mail</span>
+<div class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-primary-container border border-surface"></div>
+</div>
+<div>
+<h1 class="font-title text-title font-semibold text-text-primary leading-none tracking-tight">Trade</h1>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Network / Mode Stamp Tag -->
+<span class="text-[12px] font-mono uppercase px-2 py-0.5 rounded-full bg-surface-alt border border-border-hairline text-text-secondary tracking-wider font-semibold">
+            Perps
+          </span>
+<!-- Settings Icon Button -->
+<button aria-label="Settings" class="w-8 h-8 rounded-full bg-surface-alt hover:bg-surface-container border border-border-hairline flex items-center justify-center text-text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto px-margin pt-3 pb-24 flex flex-col gap-3">
+<!-- Market Selector Chips & Live Price Ticker Line -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<!-- BTC Selected (Ink Fill #141F0C, Crisp White Label) -->
+<button class="flex-1 h-9 rounded-full bg-text-primary text-surface flex items-center justify-center gap-1.5 font-label text-label font-medium shadow-sm transition-transform active:scale-95" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>BTC</span>
+<span class="text-[12px] text-border-hairline opacity-75">100x</span>
+</button>
+<!-- ETH Unselected (White chip, hairline border, ink text) -->
+<button class="flex-1 h-9 rounded-full bg-surface border border-border-hairline hover:bg-surface-alt text-text-primary flex items-center justify-center gap-1.5 font-label text-label font-medium transition-colors" type="button">
+<span>ETH</span>
+<span class="text-[12px] text-text-tertiary">50x</span>
+</button>
+<!-- SOL Unselected (White chip, hairline border, ink text) -->
+<button class="flex-1 h-9 rounded-full bg-surface border border-border-hairline hover:bg-surface-alt text-text-primary flex items-center justify-center gap-1.5 font-label text-label font-medium transition-colors" type="button">
+<span>SOL</span>
+<span class="text-[12px] text-text-tertiary">20x</span>
+</button>
+</div>
+<!-- Live Ticker Strip -->
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface/80 border border-border-hairline">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-text opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-success-text"></span>
+</span>
+<span class="font-label text-label font-semibold text-text-primary">BTC</span>
+<span class="font-display text-[15px] font-bold text-text-primary tracking-tight tabular-nums">$67,412.50</span>
+</div>
+<!-- Green Percentage Pill Badge -->
+<div class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-success-tint text-success-text font-caption text-caption font-semibold">
+<span class="material-symbols-outlined text-[13px] leading-none">trending_up</span>
+<span>+1.24%</span>
+</div>
+</div>
+</section>
+<!-- Order Controls: Long/Short & Execution Timing -->
+<section class="grid grid-cols-2 gap-2">
+<!-- Segmented Control: Long | Short -->
+<div class="bg-surface-alt p-1 rounded-full border border-border-hairline flex items-center">
+<button class="flex-1 h-8 rounded-full bg-surface shadow-sm flex items-center justify-center gap-1 font-label text-label font-semibold text-success-text border border-border-hairline/80" type="button">
+<span class="material-symbols-outlined text-[16px] text-success-text">arrow_upward</span>
+<span>Long</span>
+</button>
+<button class="flex-1 h-8 rounded-full flex items-center justify-center gap-1 font-label text-label font-medium text-text-tertiary hover:text-danger-text transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+<span>Short</span>
+</button>
+</div>
+<!-- Secondary Segmented Control: Now | When price hits -->
+<div class="bg-surface-alt p-1 rounded-full border border-border-hairline flex items-center">
+<button class="flex-1 h-8 rounded-full bg-surface shadow-sm flex items-center justify-center font-label text-label font-semibold text-text-primary border border-border-hairline/80" type="button">
+            Now
+          </button>
+<button class="flex-1 h-8 rounded-full flex items-center justify-center font-label text-[12px] text-text-tertiary hover:text-text-primary transition-colors text-center truncate px-1" type="button">
+            When price hits
+          </button>
+</div>
+</section>
+<!-- Main Bet Card (Ticket Card Styling & Perforated Accent) -->
+<section class="bg-surface rounded-20 border border-border-hairline postal-card-shadow postage-ticket-top p-4 flex flex-col gap-3.5 relative overflow-hidden">
+<!-- Postal Stamp Motif Watermark (Subtle Decorative Stamp) -->
+<div class="absolute right-3 top-3 opacity-[0.08] pointer-events-none">
+<span class="material-symbols-outlined text-[64px]">local_post_office</span>
+</div>
+<!-- Focal Element: Bet Size -->
+<div class="flex flex-col items-center justify-center pt-1 pb-0.5">
+<span class="font-caption text-[12px] uppercase tracking-wider text-text-tertiary font-semibold mb-0.5">Bet size</span>
+<div class="flex items-baseline justify-center">
+<span class="font-display text-display font-bold text-text-primary tabular-nums tracking-tight">$250</span>
+<span class="ml-1 text-[13px] font-semibold text-text-tertiary">USD</span>
+</div>
+</div>
+<!-- Quick Size Chips -->
+<div class="grid grid-cols-4 gap-1.5">
+<button class="h-8 rounded-full bg-surface-alt border border-border-hairline text-text-secondary font-label text-[13px] font-medium hover:bg-surface-container transition-colors" type="button">
+            $50
+          </button>
+<button class="h-8 rounded-full bg-surface-alt border border-border-hairline text-text-secondary font-label text-[13px] font-medium hover:bg-surface-container transition-colors" type="button">
+            $100
+          </button>
+<!-- $250 Active/Selected (Dark Ink Fill & Pill Style) -->
+<button class="h-8 rounded-full bg-text-primary text-surface font-label text-[13px] font-semibold shadow-sm" type="button">
+            $250
+          </button>
+<button class="h-8 rounded-full bg-surface-alt border border-border-hairline text-text-secondary font-label text-[13px] font-medium hover:bg-surface-container transition-colors" type="button">
+            Max
+          </button>
+</div>
+<!-- Leverage Section -->
+<div class="bg-surface-alt/70 border border-border-hairline rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-text-secondary font-label text-label">
+<span>Leverage</span>
+<span class="material-symbols-outlined text-[14px] text-text-tertiary">info</span>
+</div>
+<span class="font-display text-[17px] font-bold text-text-primary bg-primary-container/40 border border-border-control/30 px-2 py-0.5 rounded-full tabular-nums">
+              10x
+            </span>
+</div>
+<!-- Leverage Slider Track (1x to 50x) -->
+<div class="relative pt-1 pb-1">
+<!-- Back Track -->
+<div class="w-full h-2 bg-surface rounded-full border border-border-hairline relative overflow-hidden">
+<!-- Active Lime Progress Bar to 10x (~20% fill) -->
+<div class="h-full bg-primary-container rounded-full" style="width: 20%;"></div>
+</div>
+<!-- Slider Thumb at 10x position -->
+<div class="absolute top-[3px] left-[18%] w-4 h-4 bg-text-primary border-2 border-primary-container rounded-full shadow-md -translate-y-0.5"></div>
+<!-- Leverage Ticks & Milestones -->
+<div class="flex justify-between items-center text-[12px] font-mono text-text-tertiary mt-1 px-0.5">
+<span>1x</span>
+<span class="font-bold text-text-primary">10x</span>
+<span>25x</span>
+<span>50x</span>
+</div>
+</div>
+</div>
+<!-- Execution & Summary Rows -->
+<div class="divide-y divide-border-hairline text-label font-label">
+<div class="flex justify-between items-center py-1.5">
+<span class="text-text-secondary">Position size</span>
+<span class="font-semibold text-text-primary font-display text-[15px] tabular-nums">$2,500</span>
+</div>
+<div class="flex justify-between items-center py-1.5">
+<span class="text-text-secondary">Est. liquidation</span>
+<span class="font-semibold text-text-primary font-display text-[15px] tabular-nums">$61,180</span>
+</div>
+<div class="flex justify-between items-center py-1.5">
+<span class="text-text-secondary">Fee</span>
+<div class="flex items-center gap-1">
+<span class="text-success-text font-medium">$0</span>
+<span class="text-[12px] text-text-tertiary">from Dispatch</span>
+</div>
+</div>
+</div>
+<!-- Take Profit / Stop Loss Toggle Row -->
+<div class="flex items-center justify-between pt-1 border-t border-border-hairline">
+<div class="flex items-center gap-1.5 text-text-secondary font-label text-label">
+<span class="material-symbols-outlined text-[17px] text-text-tertiary">tune</span>
+<span>Take profit / Stop loss</span>
+</div>
+<!-- Toggle Switch (Off state) -->
+<button aria-checked="false" class="w-10 h-6 bg-surface-variant rounded-full p-0.5 flex items-center transition-colors focus:outline-none" role="switch" type="button">
+<div class="w-5 h-5 bg-surface rounded-full shadow-sm border border-border-hairline"></div>
+</button>
+</div>
+</section>
+<!-- Primary Action CTA Button: "Post trade" -->
+<section class="mt-1">
+<button class="w-full h-14 rounded-full bg-primary-container hover:bg-primary-fixed active:bg-accent-pressed text-text-primary font-semibold font-title text-[17px] shadow-sm flex items-center justify-center gap-2 transition-transform active:scale-[0.98]" type="button">
+<span>Post trade</span>
+<!-- Inline Paper Plane / Send Icon -->
+<span class="material-symbols-outlined text-[20px] text-text-primary" data-icon="send">send</span>
+</button>
+<p class="text-center text-[12px] text-text-tertiary mt-2">
+          Collateral: $250.00 • No wallet signature required
+        </p>
+</section>
+</div>
+<!-- Bottom Tab Bar (Exact 3 tabs: Trade, Orders, Positions) -->
+<!-- Executed exactly following BottomNavBar JSON specifications with exact tab counts and order -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin pt-2 pb-8 bg-surface border-t border-border-hairline dark:bg-inverse-surface dark:border-outline-variant max-w-[393px] mx-auto left-0 right-0">
+<!-- Tab 1: Trade (ACTIVE: ink label + lime #9FE870 pill badge behind the icon) -->
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-secondary text-text-primary dark:text-on-secondary rounded-full px-4 py-1.5 font-medium transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-caption text-caption">Trade</span>
+</button>
+<!-- Tab 2: Orders (INACTIVE: muted icon and label) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal transition-colors hover:text-text-primary active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-caption text-caption">Orders</span>
+</button>
+<!-- Tab 3: Positions (INACTIVE: muted icon and label) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal transition-colors hover:text-text-primary active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-caption text-caption">Positions</span>
+</button>
+</nav>
+</main>
+</body></html>

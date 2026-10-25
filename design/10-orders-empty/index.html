@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=393, height=852, initial-scale=1.0" name="viewport"/>
+<title>Orders - Dispatch</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "warning-tint": "#FAEFE1",
+            "surface-alt": "#F2F6EE",
+            "success-text": "#0E7C3A",
+            "secondary-fixed-dim": "#a7d388",
+            "tertiary-fixed": "#ffd9e3",
+            "surface-container-high": "#e5eae2",
+            "warning-text": "#A75906",
+            "on-secondary-fixed-variant": "#2b5014",
+            "on-secondary-fixed": "#092100",
+            "inverse-surface": "#2c322d",
+            "success-tint": "#E3F4E9",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dfe4dc",
+            "inverse-on-surface": "#edf2ea",
+            "surface-dim": "#d6dbd4",
+            "on-surface-variant": "#41493a",
+            "danger-text": "#CE2020",
+            "surface-bright": "#f6fbf3",
+            "on-primary-fixed": "#092100",
+            "surface": "#FFFFFF",
+            "primary-fixed": "#acf67c",
+            "secondary-container": "#bfed9f",
+            "surface-tint": "#2f6c00",
+            "primary": "#2f6c00",
+            "danger-tint": "#FBE5E5",
+            "border-hairline": "#E3E9DE",
+            "on-surface": "#181d18",
+            "on-primary-container": "#2e6900",
+            "on-tertiary-fixed-variant": "#643a49",
+            "on-primary-fixed-variant": "#225100",
+            "error-container": "#ffdad6",
+            "background": "#F7FCF4",
+            "accent-tint": "#F2FCEB",
+            "tertiary-container": "#ffc5d7",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "surface-container-low": "#f0f5ed",
+            "surface-container-highest": "#dfe4dc",
+            "secondary": "#42682a",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#eaefe7",
+            "text-primary": "#141F0C",
+            "on-tertiary-container": "#7b4f5e",
+            "on-background": "#181d18",
+            "border-control": "#749F6F",
+            "accent-pressed": "#4C7036",
+            "text-secondary": "#4A5541",
+            "on-secondary-container": "#466d2e",
+            "on-tertiary-fixed": "#31101e",
+            "text-tertiary": "#626C59",
+            "on-tertiary": "#ffffff",
+            "outline": "#717a68",
+            "on-error-container": "#93000a",
+            "outline-variant": "#c1cab5",
+            "error": "#ba1a1a",
+            "primary-container": "#9fe870",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#c2f0a2",
+            "primary-fixed-dim": "#91d963",
+            "inverse-primary": "#91d963",
+            "tertiary": "#7e5161",
+            "data-series": "#FF5F03",
+            "support-peach": "#FFB08A",
+            "accent-fill": "#557D3C"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "margin": "20px",
+            "space-sm": "8px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "display": ["Familjen Grotesk", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "title": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary min-h-screen flex justify-center items-center antialiased selection:bg-primary-container selection:text-text-primary">
+<!-- Mobile Viewport Canvas (393px × 852px) -->
+<main class="w-[393px] h-[852px] bg-background relative overflow-hidden flex flex-col justify-between border border-border-hairline shadow-2xl">
+<!-- 1. Header (Screen Title & Postmark + Connected Wallet) -->
+<header class="px-5 pt-12 pb-3 flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5">
+<!-- Postal Postmark Stamp Motif -->
+<div class="w-8 h-8 rounded-full border border-dashed border-primary flex items-center justify-center bg-accent-tint text-primary relative">
+<span class="material-symbols-outlined text-[17px]">mail</span>
+<div class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-primary-container border border-surface"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-title text-title text-text-primary tracking-tight leading-none">Orders</span>
+<span class="font-caption text-[12px] text-text-tertiary tracking-wide uppercase mt-0.5">Dispatches</span>
+</div>
+</div>
+<!-- Connected Wallet Badge Chip -->
+<div class="bg-surface border border-border-hairline rounded-full px-3 py-1 flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container ring-2 ring-accent-tint animate-pulse"></span>
+<span class="font-caption text-caption text-text-secondary">0x7a3f...91c2</span>
+</div>
+</header>
+<!-- 2. Segmented Control / Filter -->
+<section class="px-5 mt-2 z-10">
+<div class="bg-surface-alt rounded-full p-1 flex items-center justify-between border border-border-hairline/60">
+<!-- Waiting Tab (Active) -->
+<button class="flex-1 bg-surface py-2 px-4 rounded-full flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150">
+<span class="font-label text-label text-text-primary font-semibold">Waiting</span>
+<span class="bg-surface-alt text-text-secondary text-[12px] font-semibold px-1.5 py-0.2 rounded-full border border-border-hairline">0</span>
+</button>
+<!-- Completed Tab (Inactive) -->
+<button class="flex-1 py-2 px-4 rounded-full flex items-center justify-center gap-1.5 text-text-tertiary transition-all duration-150 hover:text-text-primary">
+<span class="font-label text-label font-normal">Completed</span>
+<span class="text-text-tertiary text-[12px] font-medium px-1 rounded-full">0</span>
+</button>
+</div>
+</section>
+<!-- 3. Empty State Centerpiece -->
+<section class="px-6 flex flex-col items-center justify-center text-center mt-2 mb-auto flex-1 z-10">
+<!-- Tactile Letterbox Photograph Asset Container -->
+<div class="relative w-full max-w-[280px] aspect-[4/3] rounded-[20px] overflow-hidden border border-border-hairline custom-shadow mb-6 bg-surface p-1">
+<img alt="Mailbox with open lid" class="w-full h-full object-cover rounded-[16px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd3GzvU-UxEXB7fYR8uHqJZyF8d-Hx_S6fcECPEBVlXc_R8vhUoGbyjqUKBP2OfRFQ-hAyxEEVvt9akJ4_zu5FqHsZx8u7ljZq_pVeiG_1573ron_KO38pr1BfkcQVRpAiOeeCJQMvu98eH822eh_JMDTz2R5i0u0MRk7pMJtOeHQPWRSTuBdCCYytz7Uqz9tzIL-wE8ZGKt9zgifrIEe-Zd6ha8yRjZNNP6E7lh1XMsnzO2OJhPuFlJW9X-0Qdw1uj83vdO564qof"/>
+<!-- Postal Cancellation Badge Watermark Overlay -->
+<div class="absolute bottom-2.5 right-2.5 bg-surface/90 backdrop-blur-md border border-border-hairline rounded-full px-2 py-0.5 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-text-tertiary">check_circle</span>
+<span class="font-caption text-[12px] text-text-secondary font-medium tracking-tight">Box Empty</span>
+</div>
+</div>
+<!-- Copy Hierarchy -->
+<h2 class="font-title text-[22px] font-bold text-text-primary tracking-tight mb-2 leading-snug">
+        No letters in the box yet
+      </h2>
+<p class="font-body text-label text-text-secondary leading-relaxed max-w-[280px] mb-6">
+        Trades waiting for a price and finished trades show up here.
+      </p>
+<!-- Primary Action Button: 56px Full-Width Pill -->
+<div class="w-full max-w-[320px]">
+<button class="w-full h-14 bg-primary-container text-text-primary rounded-full font-label text-body font-semibold flex items-center justify-center gap-2 custom-shadow hover:brightness-95 active:scale-[0.98] transition-transform duration-150">
+<span>Build a trade</span>
+<span class="material-symbols-outlined text-[20px] font-bold text-text-primary">send</span>
+</button>
+<!-- Guarantee Caption -->
+<div class="mt-3 flex items-center justify-center gap-1.5 text-text-tertiary">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span class="font-caption text-[12px]">Trigger orders wait on the exchange until price hits</span>
+</div>
+</div>
+</section>
+<!-- Decorative Postal Airmail Margin Watermark (Subtle Aesthetic Anchor) -->
+<div class="w-full flex justify-center items-center gap-2 py-1 opacity-25 pointer-events-none select-none">
+<div class="h-0.5 w-12 bg-border-control"></div>
+<span class="font-caption text-[12px] tracking-widest uppercase text-text-tertiary">DISPATCH DIRECT LOG</span>
+<div class="h-0.5 w-12 bg-border-control"></div>
+</div>
+<!-- 4. BottomNavBar (From Shared Components JSON) -->
+<!-- Destination count: 3 | Active Tab: 'Orders' -->
+<nav class="w-full bg-surface border-t border-border-hairline flex justify-around items-center px-margin pt-2 pb-8 z-40">
+<!-- Tab 1: Trade (Inactive) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-4 py-1.5 font-normal hover:bg-surface-alt transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]">swap_horiz</span>
+<span class="font-caption text-caption mt-0.5">Trade</span>
+</button>
+<!-- Tab 2: Orders (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-text-primary rounded-full px-5 py-1.5 font-medium shadow-sm transition-transform duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-caption text-caption font-semibold mt-0.5">Orders</span>
+</button>
+<!-- Tab 3: Positions (Inactive) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-4 py-1.5 font-normal hover:bg-surface-alt transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+<span class="font-caption text-caption mt-0.5">Positions</span>
+</button>
+</nav>
+</main>
+</body></html>

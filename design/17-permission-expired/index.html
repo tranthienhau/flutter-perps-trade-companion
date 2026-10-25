@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Screen 17 - Permission Expired</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0d1408;
+      color: #141F0C;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .display-number {
+      font-family: 'Familjen Grotesk', sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+    .phone-container {
+      width: 393px;
+      height: 852px;
+      position: relative;
+      background-color: #F7FCF4;
+      overflow: hidden;
+      border-radius: 48px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 10px #1e2619;
+    }
+    .sheet-shadow {
+      box-shadow: 0 -12px 40px rgba(20, 31, 12, 0.22);
+    }
+    .perforated-border {
+      background-image: radial-gradient(#F7FCF4 2px, transparent 2.5px);
+      background-size: 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Screen Frame (393x852) -->
+  <div class="phone-container flex flex-col justify-end">
+
+    <!-- BACKGROUND: Dimmed Mobile Trade Screen -->
+    <div class="absolute inset-0 bg-[#F7FCF4] filter blur-[2px] opacity-40 pointer-events-none select-none overflow-hidden">
+      <!-- Status Bar Area -->
+      <div class="h-12 w-full flex justify-between items-center px-7 pt-3 text-xs font-semibold text-[#141F0C]">
+        <span>9:41</span>
+        <div class="flex items-center space-x-1.5">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+          <div class="w-5 h-2.5 border border-current rounded-sm p-0.5"><div class="h-full bg-current w-3/4"></div></div>
+        </div>
+      </div>
+
+      <!-- Trade Header -->
+      <div class="px-5 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-full border border-[#749F6F] flex items-center justify-center bg-[#F2FCEB]">
+            <svg class="w-4 h-4 text-[#141F0C]" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-[#141F0C]">Trade</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-[#E3E9DE] text-[#4A5541]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#CE2020] mr-1.5"></span>
+            0x7a3f...91c2
+          </span>
+          <div class="w-8 h-8 rounded-full bg-white border border-[#E3E9DE] flex items-center justify-center text-[#4A5541]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset Chips -->
+      <div class="px-5 py-2 flex space-x-2">
+        <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#141F0C] text-white">BTC 100x</span>
+        <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-[#E3E9DE] text-[#4A5541]">ETH 50x</span>
+        <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-[#E3E9DE] text-[#4A5541]">SOL 20x</span>
+      </div>
+
+      <!-- Price Banner -->
+      <div class="px-5 pt-3">
+        <div class="text-2xl font-bold display-number text-[#141F0C]">$67,418.20</div>
+        <div class="text-xs text-[#0E7C3A] font-semibold mt-0.5">▲ +2.10% 24h</div>
+      </div>
+
+      <!-- Direction & Order Type -->
+      <div class="px-5 pt-4 grid grid-cols-2 gap-2">
+        <div class="h-11 rounded-xl bg-white border border-[#E3E9DE] flex items-center justify-center font-semibold text-sm text-[#0E7C3A]">Long ↑</div>
+        <div class="h-11 rounded-xl bg-white border border-[#E3E9DE] flex items-center justify-center font-semibold text-sm text-[#626C59]">Short ↓</div>
+      </div>
+
+      <!-- Bet Size Card -->
+      <div class="mx-5 mt-4 p-4 rounded-2xl bg-white border border-[#E3E9DE]">
+        <div class="text-xs text-[#626C59] font-semibold uppercase tracking-wider">Bet Size</div>
+        <div class="text-3xl font-bold display-number mt-1 text-[#141F0C]">$100 <span class="text-base text-[#626C59] font-normal">USD</span></div>
+      </div>
+    </div>
+
+    <!-- SEMI-TRANSPARENT BACKDROP OVERLAY -->
+    <div class="absolute inset-0 bg-[#141F0C]/45 backdrop-blur-[1px] z-10 pointer-events-none"></div>
+
+    <!-- NON-DISMISSIBLE WHITE BOTTOM SHEET (Covering lower 75% of phone: ~640px height) -->
+    <div class="relative z-20 w-full bg-white rounded-t-[28px] sheet-shadow px-6 pt-5 pb-8 flex flex-col justify-between" style="min-height: 642px; height: 75.5%;">
+
+      <!-- TOP SECTION: Photo + Headings + Info Row -->
+      <div class="flex flex-col">
+
+        <!-- Real Photographic Header (Rounded 20px, 160px tall) -->
+        <div class="w-full h-[160px] rounded-[20px] overflow-hidden relative shadow-sm border border-[#E3E9DE]/60 bg-[#F2F6EE] flex-shrink-0">
+          <img 
+            src="https://lh3.googleusercontent.com/aida/AEtjO1Xs2JolQ7k2OSA8UxWHg-shBp9322R03zNALp6qOe1ZOlGx-nE_48mBVBeiSNobU-teCA4_g8eGWFqG6e3Z3bi0EKRBSle6I1fYi0JY7FJhvpmIuhaGmRCuU3GnFldl7D172CFsoK78DEMFzI0BhKpMcft3HL8FWGAj7a_D72L5jjcpL5Cf_sB-AvplPgeXWxRtsu2Js1XkW1tmCtFw44BUxY8QeSdoMplbrBXNW3PFfKy5TFu1aqsgeFmQ" 
+            alt="Single cream envelope stamped with faded red Return to Sender mark"
+            class="w-full h-full object-cover object-center"
+          />
+          <!-- Authentic Postal Dispatch Desk Badge -->
+          <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-sm border border-[#E3E9DE] rounded-full px-2.5 py-1 flex items-center space-x-1.5 shadow-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#CE2020]"></span>
+            <span class="text-[12px] font-bold tracking-widest text-[#141F0C] uppercase">Postal Desk #42</span>
+          </div>
+        </div>
+
+        <!-- Sheet Headline -->
+        <h1 class="text-[22px] leading-[1.25] font-bold text-[#141F0C] mt-5 tracking-tight">
+          Your trading permission has ended
+        </h1>
+
+        <!-- Body Explanation -->
+        <p class="text-[14px] leading-[1.45] text-[#4A5541] mt-2 font-normal">
+          Your open positions and their take profit and stop loss stay on the exchange. To post, close or edit trades, sign a new 30-day permission.
+        </p>
+
+        <!-- Status / Info Row on #F2F6EE -->
+        <div class="mt-4 p-3.5 bg-[#F2F6EE] rounded-[16px] border border-[#E3E9DE] flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-white border border-[#E3E9DE] flex items-center justify-center flex-shrink-0 text-[#A75906]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <div class="text-[13px] font-semibold text-[#141F0C] leading-snug">
+                Expired 25 Nov 2026
+              </div>
+              <div class="text-[12px] text-[#626C59] font-medium leading-tight">
+                2 positions open
+              </div>
+            </div>
+          </div>
+
+          <!-- Inactive Badge -->
+          <span class="px-2.5 py-1 rounded-full text-[12px] font-bold bg-[#FBE5E5] text-[#CE2020] uppercase tracking-wide flex-shrink-0">
+            Inactive
+          </span>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM SECTION: CTAs & Trust Assurance -->
+      <div class="flex flex-col space-y-3 pt-4 mt-auto">
+
+        <!-- Primary CTA: Full-width Lime #9FE870 Pill 56px height with Ink Label -->
+        <button class="w-full h-14 rounded-full bg-[#9FE870] hover:bg-[#8FD660] active:scale-[0.98] transition-transform duration-150 flex items-center justify-center space-x-2 text-[#141F0C] font-semibold text-[16px] shadow-sm">
+          <span>Sign new permission</span>
+          <svg class="w-4 h-4 text-[#141F0C]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </button>
+
+        <!-- Secondary CTA: White Pill with 1.5px Ink Border and Ink Label -->
+        <button class="w-full h-14 rounded-full bg-white border-[1.5px] border-[#141F0C] hover:bg-[#F2F6EE] active:scale-[0.98] transition-transform duration-150 flex items-center justify-center text-[#141F0C] font-semibold text-[16px]">
+          <span>View positions</span>
+        </button>
+
+        <!-- Microcopy Trust Note -->
+        <div class="flex items-center justify-center space-x-1.5 pt-1 text-[12px] text-[#626C59] font-normal text-center">
+          <svg class="w-3.5 h-3.5 text-[#749F6F] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Dispatch never holds or moves your funds</span>
+        </div>
+
+        <!-- iOS Home Indicator -->
+        <div class="w-32 h-1 bg-[#141F0C]/20 rounded-full mx-auto mt-2"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

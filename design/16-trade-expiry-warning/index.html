@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=393, height=852, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Dispatch - Trade</title>
+<!-- Google Fonts: Inter & Familjen Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,500;0,600;0,700;1,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#d6dbd4",
+            "tertiary-container": "#ffc5d7",
+            "on-surface": "#181d18",
+            "surface-container": "#eaefe7",
+            "on-tertiary-fixed": "#31101e",
+            "inverse-on-surface": "#edf2ea",
+            "secondary-fixed": "#c2f0a2",
+            "secondary-fixed-dim": "#a7d388",
+            "surface-tint": "#2f6c00",
+            "primary-fixed-dim": "#91d963",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#dfe4dc",
+            "on-primary": "#ffffff",
+            "surface-alt": "#F2F6EE",
+            "accent-fill": "#557D3C",
+            "surface-container-low": "#f0f5ed",
+            "on-tertiary-fixed-variant": "#643a49",
+            "accent-pressed": "#4C7036",
+            "surface-variant": "#dfe4dc",
+            "text-secondary": "#4A5541",
+            "error": "#ba1a1a",
+            "support-peach": "#FFB08A",
+            "on-surface-variant": "#41493a",
+            "on-primary-fixed-variant": "#225100",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#91d963",
+            "danger-text": "#CE2020",
+            "success-text": "#0E7C3A",
+            "tertiary-fixed": "#ffd9e3",
+            "on-tertiary-container": "#7b4f5e",
+            "on-primary-container": "#2e6900",
+            "primary-fixed": "#acf67c",
+            "outline-variant": "#c1cab5",
+            "surface-container-high": "#e5eae2",
+            "outline": "#717a68",
+            "primary": "#2f6c00",
+            "on-secondary-fixed-variant": "#2b5014",
+            "on-secondary-container": "#466d2e",
+            "border-hairline": "#E3E9DE",
+            "surface-bright": "#f6fbf3",
+            "secondary-container": "#bfed9f",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-background": "#181d18",
+            "data-series": "#FF5F03",
+            "background": "#F7FCF4",
+            "secondary": "#42682a",
+            "text-tertiary": "#626C59",
+            "text-primary": "#141F0C",
+            "warning-tint": "#FAEFE1",
+            "on-primary-fixed": "#092100",
+            "inverse-surface": "#2c322d",
+            "accent-tint": "#F2FCEB",
+            "error-container": "#ffdad6",
+            "warning-text": "#A75906",
+            "on-secondary-fixed": "#092100",
+            "primary-container": "#9fe870",
+            "border-control": "#749F6F",
+            "danger-tint": "#FBE5E5",
+            "success-tint": "#E3F4E9",
+            "tertiary-fixed-dim": "#f0b7c9",
+            "tertiary": "#7e5161",
+            "surface": "#FFFFFF",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "32px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "margin": "20px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-xs": "4px"
+          },
+          "fontFamily": {
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "title": ["Inter", "sans-serif"],
+            "display": ["Familjen Grotesk", "sans-serif"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .perforated-border {
+      background-image: radial-gradient(#F7FCF4 4px, transparent 4.5px);
+      background-size: 16px 16px;
+      background-position: -8px -8px;
+    }
+    .custom-shadow {
+      box-shadow: 0 1px 2px rgba(20, 31, 12, 0.04), 0 8px 24px rgba(20, 31, 12, 0.06);
+    }
+    .tnum {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary min-h-screen flex justify-center items-start selection:bg-primary-container selection:text-text-primary">
+<!-- Mobile Viewport Wrapper (393px width, max 852px tall layout) -->
+<div class="w-full max-w-[393px] min-h-screen bg-background relative flex flex-col justify-between overflow-x-hidden pb-28">
+<!-- Top Safe Area & Top Bar -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md px-margin pt-12 pb-3.5 flex justify-between items-center transition-all duration-150">
+<!-- Left: Postal Roundel Stamp Motif + Title -->
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full border border-border-hairline flex items-center justify-center bg-surface-alt relative group">
+<span class="material-symbols-outlined text-primary text-[18px]">mail</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-primary-container border-2 border-surface"></span>
+</div>
+<div>
+<h1 class="text-title font-title text-text-primary tracking-tight">Trade</h1>
+</div>
+</div>
+<!-- Right: Connected Wallet Chip + Gear Settings -->
+<div class="flex items-center gap-2">
+<div class="h-8 px-2.5 rounded-full bg-surface border border-border-hairline flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text animate-pulse"></span>
+<span class="font-caption text-caption text-text-secondary tnum">0x7a3f...91c2</span>
+</div>
+<button aria-label="Settings" class="w-8 h-8 rounded-full bg-surface border border-border-hairline flex items-center justify-center text-text-secondary hover:bg-surface-alt transition-colors">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin flex flex-col gap-4 mt-1">
+<!-- Warning Banner: Permission Expiry -->
+<div class="bg-warning-tint border border-[#A75906]/20 rounded-2xl p-3.5 flex items-start justify-between gap-3 shadow-sm">
+<div class="flex items-start gap-2.5">
+<div class="mt-0.5 w-5 h-5 rounded-full bg-[#A75906]/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-warning-text text-[15px]">schedule</span>
+</div>
+<p class="text-warning-text text-[13px] leading-[18px] font-medium">
+            Trading permission ends in 5 days (31 Oct). Renew so your exits stay covered.
+          </p>
+</div>
+<button class="shrink-0 self-center text-warning-text font-label text-[13px] font-bold underline underline-offset-2 hover:opacity-80 active:scale-95 transition-all">
+          Renew
+        </button>
+</div>
+<!-- Market Selector & Ticker Bar -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<!-- BTC Chip -->
+<button class="px-3 py-1.5 rounded-full bg-surface border border-border-hairline flex items-center gap-1.5 text-text-secondary hover:bg-surface-alt transition-colors">
+<span class="text-caption font-caption font-semibold">BTC</span>
+<span class="text-[12px] font-medium text-text-tertiary">100x</span>
+</button>
+<!-- ETH Chip -->
+<button class="px-3 py-1.5 rounded-full bg-surface border border-border-hairline flex items-center gap-1.5 text-text-secondary hover:bg-surface-alt transition-colors">
+<span class="text-caption font-caption font-semibold">ETH</span>
+<span class="text-[12px] font-medium text-text-tertiary">50x</span>
+</button>
+<!-- SOL Chip (Selected) -->
+<button class="px-3 py-1.5 rounded-full bg-text-primary text-surface flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+<span class="text-caption font-caption font-semibold text-white">SOL</span>
+<span class="text-[12px] font-semibold bg-primary-container text-text-primary px-1.5 py-0.5 rounded-full">20x</span>
+</button>
+</div>
+<!-- Filter / Dropdown icon -->
+<button class="w-8 h-8 rounded-full bg-surface border border-border-hairline flex items-center justify-center text-text-secondary hover:bg-surface-alt shrink-0 ml-1">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+</div>
+<!-- Sub-bar Ticker -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-baseline gap-2">
+<span class="font-display text-[22px] font-bold tracking-tight text-text-primary tnum leading-tight">SOL $148.62</span>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-success-tint text-success-text text-[12px] font-semibold tnum">
+<span class="material-symbols-outlined text-[13px] leading-none">arrow_drop_up</span>+2.10%
+            </span>
+</div>
+<span class="text-[12px] font-semibold text-text-tertiary uppercase tracking-wider bg-surface-alt border border-border-hairline px-2 py-0.5 rounded">Index</span>
+</div>
+</section>
+<!-- Order Controls: Dual Segmented Toggles -->
+<section class="grid grid-cols-2 gap-2">
+<!-- Direction Segmented -->
+<div class="bg-surface-alt p-1 rounded-xl border border-border-hairline grid grid-cols-2 gap-1">
+<button class="py-1.5 px-2 rounded-lg bg-surface text-success-text border border-success-text/20 shadow-sm flex items-center justify-center gap-1 text-label font-label font-semibold">
+<span>Long</span>
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+</button>
+<button class="py-1.5 px-2 rounded-lg text-text-tertiary flex items-center justify-center gap-1 text-label font-label hover:text-text-primary transition-colors">
+<span>Short</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</button>
+</div>
+<!-- Execution Mode Segmented -->
+<div class="bg-surface-alt p-1 rounded-xl border border-border-hairline grid grid-cols-2 gap-1">
+<button class="py-1.5 px-2 rounded-lg bg-surface text-text-primary shadow-sm flex items-center justify-center text-label font-label font-semibold">
+            Now
+          </button>
+<button class="py-1.5 px-2 rounded-lg text-text-tertiary flex items-center justify-center text-label font-label hover:text-text-primary transition-colors text-[12px]">
+            When hits
+          </button>
+</div>
+</section>
+<!-- Main Order Ticket (Card with Postage Detail & Perforation Styling) -->
+<div class="bg-surface rounded-2xl custom-shadow border border-border-hairline relative overflow-hidden flex flex-col p-4 gap-4">
+<!-- Postal Watermark Motif Stamp Top-Right -->
+<div class="absolute top-2.5 right-3 w-12 h-12 rounded-full border border-dashed border-border-hairline pointer-events-none flex items-center justify-center opacity-70 rotate-12">
+<div class="w-8 h-8 rounded-full border border-border-hairline flex items-center justify-center">
+<span class="text-[12px] font-bold text-text-tertiary tracking-tighter uppercase">PARCEL</span>
+</div>
+</div>
+<!-- Bet Size Section -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="text-caption font-caption text-text-tertiary uppercase tracking-wider text-[12px]">Bet Size</label>
+<span class="text-caption font-caption text-text-tertiary tnum">Avail: $1,420.00</span>
+</div>
+<!-- Focal Display Number -->
+<div class="flex items-baseline gap-1 py-0.5">
+<span class="text-display font-display text-text-primary tracking-tight tnum">$100</span>
+<span class="text-title font-title text-text-tertiary font-semibold ml-0.5">USD</span>
+</div>
+<!-- Quick Bet Chips -->
+<div class="grid grid-cols-4 gap-1.5 mt-1">
+<button class="py-1 rounded-lg bg-surface-alt border border-border-hairline text-caption font-caption text-text-secondary hover:bg-surface-container transition-colors tnum">$50</button>
+<button class="py-1 rounded-lg bg-text-primary text-surface text-caption font-caption font-semibold shadow-sm tnum">$100</button>
+<button class="py-1 rounded-lg bg-surface-alt border border-border-hairline text-caption font-caption text-text-secondary hover:bg-surface-container transition-colors tnum">$250</button>
+<button class="py-1 rounded-lg bg-surface-alt border border-border-hairline text-caption font-caption text-text-secondary hover:bg-surface-container transition-colors">Max</button>
+</div>
+</div>
+<!-- Perforated Divider Motif -->
+<div class="relative py-1">
+<div class="border-t border-dashed border-border-hairline w-full"></div>
+<div class="absolute -left-6 -top-1.5 w-3 h-3 rounded-full bg-background border-r border-border-hairline"></div>
+<div class="absolute -right-6 -top-1.5 w-3 h-3 rounded-full bg-background border-l border-border-hairline"></div>
+</div>
+<!-- Leverage Slider Box -->
+<div class="bg-surface-alt/80 rounded-xl p-3 border border-border-hairline flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-caption font-caption text-text-secondary font-medium">Leverage</span>
+<span class="px-2 py-0.5 bg-primary-container text-text-primary rounded-full text-caption font-caption font-bold tnum">3x</span>
+</div>
+<!-- Interactive Track Mockup -->
+<div class="relative flex items-center py-1">
+<div class="h-1.5 w-full bg-surface-dim rounded-full overflow-hidden relative">
+<div class="h-full bg-primary-container rounded-full" style="width: 25%;"></div>
+</div>
+<!-- Thumb -->
+<div class="absolute left-[25%] -translate-x-1/2 w-4 h-4 bg-text-primary rounded-full shadow border-2 border-surface"></div>
+</div>
+<!-- Tick Labels -->
+<div class="flex justify-between text-[12px] text-text-tertiary font-medium tnum px-0.5">
+<span>1x</span>
+<span class="text-text-primary font-bold">3x</span>
+<span>10x</span>
+<span>25x</span>
+<span>50x</span>
+</div>
+</div>
+<!-- Summary Breakdown Rows -->
+<div class="flex flex-col gap-2 text-[13px] pt-1">
+<div class="flex items-center justify-between">
+<span class="text-text-tertiary font-body">Position size</span>
+<span class="text-text-primary font-semibold font-body tnum">$300.00</span>
+</div>
+<div class="border-t border-border-hairline/60"></div>
+<div class="flex items-center justify-between">
+<span class="text-text-tertiary font-body">Est. liquidation</span>
+<span class="text-danger-text font-semibold font-body tnum">$101.40</span>
+</div>
+<div class="border-t border-border-hairline/60"></div>
+<div class="flex items-center justify-between">
+<span class="text-text-tertiary font-body">Fee</span>
+<span class="text-success-text font-medium font-body flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              $0 from Dispatch
+            </span>
+</div>
+</div>
+<!-- Take Profit / Stop Loss Switch Row -->
+<div class="pt-2 border-t border-border-hairline flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-caption font-caption text-text-secondary font-medium">Take profit / Stop loss</span>
+<span class="material-symbols-outlined text-text-tertiary text-[16px]">info</span>
+</div>
+<!-- Inactive toggle switch -->
+<div class="w-10 h-6 bg-border-hairline rounded-full relative p-0.5 cursor-pointer transition-colors">
+<div class="w-5 h-5 bg-surface rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Action Section: Post Trade Primary Pill Button -->
+<div class="flex flex-col gap-2 mt-1">
+<button class="w-full h-14 bg-primary-container active:scale-[0.98] transition-transform duration-150 rounded-full flex items-center justify-center gap-2 shadow-sm hover:brightness-105">
+<span class="material-symbols-outlined text-text-primary text-[20px]">send</span>
+<span class="text-text-primary font-title text-[17px] font-bold tracking-tight">Post trade</span>
+</button>
+<p class="text-center text-[12px] text-text-tertiary font-medium">
+          Collateral: $100.00 • Signed by 30-day permission
+        </p>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mandatory Shell Anchor) -->
+<!-- Screen intent is top-level Trade, so Destination Rule applies: Trade is ACTIVE -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin pt-2 pb-8 bg-surface dark:bg-inverse-surface border-t border-border-hairline dark:border-outline-variant transition-transform duration-150">
+<!-- Tab 1: Trade (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-secondary text-text-primary dark:text-on-secondary rounded-full px-4 py-1.5 font-medium transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-caption font-caption tracking-tight">Trade</span>
+</button>
+<!-- Tab 2: Orders (INACTIVE) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal transition-all hover:bg-surface-alt active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="text-caption font-caption tracking-tight">Orders</span>
+</button>
+<!-- Tab 3: Positions (INACTIVE) -->
+<button class="flex flex-col items-center justify-center text-text-tertiary dark:text-outline px-4 py-1.5 font-normal transition-all hover:bg-surface-alt active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-caption font-caption tracking-tight">Positions</span>
+</button>
+</nav>
+</div>
+</body></html>

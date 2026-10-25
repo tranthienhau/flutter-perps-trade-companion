@@ -1,0 +1,442 @@
+{
+  "title": "Dispatch - Trade Companion",
+  "slug": "dispatch-trade",
+  "domain": "fintech",
+  "style": "bright",
+  "allow3D": false,
+  "features": [
+    "Google and Apple sign-in only (no email, password or phone)",
+    "Trade screen usable before any wallet is connected",
+    "Markets BTC, ETH, SOL with live reference prices",
+    "Long or Short, Now or When price hits (trigger order)",
+    "Bet size, entry price and leverage",
+    "Optional take profit / stop loss pair with price-and-percent editor and visual price scale",
+    "Wallet connect only on Post tap: major wallet apps + WalletConnect (bottom sheets)",
+    "Two signatures: prove ownership, then grant 30-day trade-only permission (no per-trade signing)",
+    "Permission expiry: warning at 5 days left, blocking re-sign when expired or when exits could cross expiry",
+    "Orders list: waiting trigger orders + completed results",
+    "Positions: live P&L and close",
+    "Push notifications on order and position status",
+    "Weekly rewards: half of builder fees shared to users in USDC by volume, $10 minimum",
+    "Settings behind gear icon",
+    "App never holds funds: no deposit, withdraw or transfer"
+  ],
+  "screenCount": 17,
+  "bannedTerms": [
+    "Deposit funds",
+    "Add funds",
+    "Buy crypto",
+    "Chart",
+    "Candlestick",
+    "Portfolio",
+    "Analytics",
+    "Staking",
+    "Airdrop",
+    "Token launch",
+    "Phone number",
+    "Followers",
+    "Copy trading",
+    "Leaderboard chat"
+  ],
+  "sharedComponents": {
+    "bottomTabBar": {
+      "tabs": [
+        "Trade",
+        "Orders",
+        "Positions"
+      ],
+      "icons": [
+        "send (paper plane)",
+        "mail / envelope stack",
+        "layers / stacked cards"
+      ],
+      "note": "Flat white bar, hairline top border, 3 tabs in this exact order. Active tab = ink label + accent-filled pill behind icon; inactive = tertiary ink. Settings is NOT a tab, it is a gear icon top-right of the Trade header."
+    },
+    "statusBar": "Top header row: left = small postmark-style circular stamp logo mark + screen title, right = gear icon (Trade screen only) or nothing. When a wallet is connected, a small chip shows the shortened address (0x7a3f...91c2) with a green dot.",
+    "controls": "Primary button: full-width pill 56px, accent #9FE870 fill with ink #141F0C label (dark label on bright lime), pressed = #8FD660, disabled = #E3E9DE fill + tertiary label. Secondary: white pill with 1.5px ink border. Input: 12px radius, border #7E8A74, focus = 2px accent ring, error = danger. Card: white, 20px radius, soft shadow. Postal ticket card: the order ticket card has a perforated stamp edge on top (small scalloped semicircle notches) like a postage stamp. Chip: pill, 13px label. Segmented control: pill track #F2F6EE, selected segment white with soft shadow. Long uses success green, Short uses danger red (trading convention), both with an icon arrow."
+  },
+  "screens": [
+    {
+      "name": "login",
+      "purpose": "Sign in with Google or Apple, nothing else",
+      "content": "Top: postmark stamp logo mark. Hero real photo: a single cream envelope with a lime wax-seal sticker resting on a white desk, soft daylight. Headline 'Trade like sending a letter.' subline 'Open and close BTC, ETH and SOL positions in seconds.' Buttons: 'Continue with Apple' (black pill, white label), 'Continue with Google' (white pill, ink border, Google G). Footnote small: 'No email, no password. Dispatch never holds your funds.' Terms + Privacy links.",
+      "group": "onboarding",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "trade",
+      "purpose": "Build a market-now trade with no wallet connected yet",
+      "content": "Header: stamp mark + 'Trade', gear icon right. Market selector chips BTC / ETH / SOL (BTC selected) with live price 'BTC  $67,412.50  +1.24%'. Segmented Long | Short (Long selected, green). Segmented Now | When price hits (Now selected). Focal: giant bet size number '$250' centered with small quiet label 'Bet size' and quick chips $50 / $100 / $250 / Max. Leverage row: '10x' with slider 1x-50x and tick marks. Summary rows small: 'Position size $2,500', 'Est. liquidation $61,180', 'Fee  $0 from Dispatch'. TP/SL toggle row 'Take profit / Stop loss' (off). Primary CTA full-width 'Post trade' with paper-plane icon. Bottom tab bar Trade active.",
+      "group": "core",
+      "nav": "Trade",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "trade-trigger-tpsl",
+      "purpose": "Trigger order 'when price hits' with TP/SL on and the visual price scale",
+      "content": "Header 'Trade', wallet chip '0x7a3f...91c2' green dot, gear. ETH selected '$3,284.10'. Short selected (red). 'When price hits' selected. Focal: big entry price '$3,350.00' with label 'Trigger price'. Bet $100, leverage 5x. TP/SL toggle ON with two rows: 'Take profit $3,150.00  -5.97%  +$29.85' (green) and 'Stop loss $3,420.00  +2.09%  -$10.45' (red). Visual price scale: vertical ruler on the right side with markers for Stop loss (top, red), Trigger (ink), Current price (lime dot), Take profit (bottom, green). Primary CTA 'Post trade'. Bottom tab bar Trade active.",
+      "group": "core",
+      "nav": "Trade",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "tpsl-editor",
+      "purpose": "Bottom sheet editor for take profit / stop loss in price or percent",
+      "content": "Dimmed trade screen behind; white bottom sheet with grabber. Title 'Take profit'. Segmented 'Price | Percent' (Percent selected). Focal big value '+12%' with derived small line '= $75,500.00  \u00b7  est. +$300.00'. Quick chips +5% +10% +12% +25%. Numeric keypad 3x4 with large keys. Below a horizontal price scale bar showing Liquidation, Entry $67,412, TP marker. Primary 'Set take profit'. Secondary text button 'Remove'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "wallet-connect",
+      "purpose": "Shown only after tapping Post: choose a wallet to connect",
+      "content": "Dimmed trade screen behind; bottom sheet. Small step dots 1 of 3. Title 'Connect a wallet to post'. Subline 'Your trade is ready. Connect once, sign twice, then trade for 30 days.' List rows with real wallet-style app tiles (generic colored rounded squares, no real logos): 'MetaMask', 'Coinbase Wallet', 'Rainbow', 'Trust Wallet', 'Other wallets via WalletConnect' (QR icon). Each row chevron. Footnote with shield icon: 'Dispatch can never deposit, withdraw or move your money.'",
+      "group": "onboarding",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "wallet-prove",
+      "purpose": "Signature 1 of 2: prove wallet ownership",
+      "content": "Bottom sheet. Step dots 2 of 3. Postal illustration: real photo of a red wax seal stamp pressed on paper. Title 'Sign to prove it is you'. Card: wallet 'MetaMask', address '0x7a3f...91c2', message preview in mono 'Dispatch login \u00b7 nonce 8F2K-41QD \u00b7 26 Oct 2026'. Badge 'Free \u00b7 no gas'. Primary 'Open MetaMask to sign'. Small status line with spinner 'Waiting for signature...'.",
+      "group": "onboarding",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "grant-permission",
+      "purpose": "Signature 2 of 2: grant 30-day trade-only permission (session key)",
+      "content": "Bottom sheet. Step dots 3 of 3. Title 'Allow trading for 30 days'. Focal: big '30 days' with label 'until 25 Nov 2026'. Two lists: 'Dispatch can' with green checks: Open positions, Close positions, Set take profit and stop loss. 'Dispatch can never' with crossed icons: Deposit, Withdraw, Transfer, Stake or claim. Note: 'Revoke any time from your wallet. You will not sign each trade.' Primary 'Sign permission'. ",
+      "group": "onboarding",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "trade-posted",
+      "purpose": "Confirmation after the order is submitted",
+      "content": "Full screen, white. Focal: large circular postmark stamp graphic in lime ink with 'POSTED 26 OCT 14:02' around the ring, envelope with paper plane flying out. Title 'Your trade is on its way'. Receipt card with perforated stamp edge: 'Long BTC \u00b7 10x', 'Bet $250', 'Filled at $67,418.20', 'Status Open'. Buttons: primary 'View position', secondary 'New trade'.",
+      "group": "core",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "orders",
+      "purpose": "Waiting trigger orders and completed results in one list",
+      "content": "Header 'Orders'. Segmented 'Waiting 2 | Completed'. Waiting section: envelope-style order cards: 'Short ETH 5x \u00b7 when price hits $3,350.00 \u00b7 now $3,284.10 \u00b7 2.0% away' with progress bar, TP $3,150 / SL $3,420 tags, 'Cancel' text button; 'Long SOL 3x \u00b7 when price hits $142.00 \u00b7 now $148.62'. Completed section header: rows 'Long BTC 10x \u00b7 Closed by take profit \u00b7 +$84.20' (green, 'Delivered' stamp), 'Short SOL 4x \u00b7 Stopped out \u00b7 -$12.60' (red), 'Long ETH 2x \u00b7 Closed manually \u00b7 +$6.15', each with date 24 Oct, 22 Oct. Bottom tab bar Orders active.",
+      "group": "core",
+      "nav": "Orders",
+      "states": [
+        "default",
+        "empty"
+      ]
+    },
+    {
+      "name": "orders-empty",
+      "purpose": "Zero orders first-run state",
+      "content": "Header 'Orders'. Segmented 'Waiting | Completed'. Center real photo of an empty white wall-mounted mailbox, soft daylight, lime accent tag. Title 'No letters in the box yet'. Body 'Trades waiting for a price and finished trades show up here.' Primary 'Build a trade'. Bottom tab bar Orders active.",
+      "group": "core",
+      "nav": "Orders",
+      "states": [
+        "empty"
+      ]
+    },
+    {
+      "name": "positions",
+      "purpose": "Open positions with live P&L and close",
+      "content": "Header 'Positions', live dot 'Live'. Focal summary: big '+$142.85' total unrealized P&L in green with small label 'Open P&L \u00b7 2 positions'. Position cards: 'Long BTC \u00b7 10x' entry $67,418.20, mark $68,002.40, size $2,500, P&L '+$21.66  +8.7%', TP $72,000 / SL $65,000 tags, liquidation $61,180, 'Close' pill button (secondary). 'Long SOL \u00b7 3x' entry $139.10, mark $148.62, P&L '+$121.19  +20.5%', 'Close'. Bottom tab bar Positions active.",
+      "group": "core",
+      "nav": "Positions",
+      "states": [
+        "default",
+        "empty"
+      ]
+    },
+    {
+      "name": "positions-empty",
+      "purpose": "No open positions",
+      "content": "Header 'Positions'. Real photo of a neat stack of blank cream envelopes tied with lime string on white desk. Title 'Nothing open right now'. Body 'Open trades appear here with live profit and loss.' Primary 'Build a trade'. Bottom tab bar Positions active.",
+      "group": "core",
+      "nav": "Positions",
+      "states": [
+        "empty"
+      ]
+    },
+    {
+      "name": "close-position",
+      "purpose": "Confirm closing a position",
+      "content": "Dimmed positions screen; bottom sheet. Title 'Close Long BTC 10x?'. Focal: big '+$21.66' green with '+8.7%'. Rows: Entry $67,418.20, Mark $68,002.40, Size $2,500, 'You receive in your account +$21.66 (est.)'. Note 'Signed by your 30-day permission. No wallet pop-up.' Primary 'Close position'. Secondary 'Keep open'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "settings",
+      "purpose": "Account, wallet permission, notifications",
+      "content": "Back arrow + 'Settings'. Account card: avatar real photo of Maya Chen, signed in with Apple. Wallet card: 'MetaMask 0x7a3f...91c2', permission status chip 'Active \u00b7 21 days left' with progress bar, buttons 'Renew permission' and 'Disconnect'. Rows: 'Weekly rewards' with value '$18.40 this week', Notifications toggles (Order filled, Take profit / stop loss hit, Permission expiring), Default leverage 10x, Help and support, Terms, Privacy, 'How permission works' link, Sign out (danger text). Footer 'Version 1.0.0 (42)'.",
+      "group": "settings",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "weekly-rewards",
+      "purpose": "Weekly shared builder-fee rewards in USDC",
+      "content": "Back arrow + 'Weekly rewards'. Focal: big '$18.40 USDC' est. this week with label 'Sent to 0x7a3f...91c2 every Monday'. Progress bar toward '$10 minimum' (passed, check). Stat rows: 'This week volume $48,250', 'All-time volume $312,900', 'Margin risked $1,840', 'Your rank #214 of 3,920'. History list of past payouts with postal 'Delivered' stamps: 'Week 42 \u00b7 $22.10 USDC \u00b7 Delivered', 'Week 41 \u00b7 $7.80 \u00b7 Below $10 minimum, not sent', 'Week 40 \u00b7 $15.35 \u00b7 Delivered'. Info card: 'Half of the builder fee is shared with traders. Paid after the platform payout arrives. No claim needed.'",
+      "group": "settings",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "trade-expiry-warning",
+      "purpose": "Trade screen with 5-days-left permission warning banner",
+      "content": "Same trade layout as trade screen with wallet chip. Warning banner under header in warning amber tint with clock icon: 'Trading permission ends in 5 days (31 Oct). Renew now to keep your exits active.' with 'Renew' text button. Market SOL $148.62, Long, Now, bet $100, 3x. Primary 'Post trade'. Bottom tab bar Trade active.",
+      "group": "core",
+      "nav": "Trade",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "permission-expired",
+      "purpose": "Blocking re-sign when permission expired or exits would cross expiry",
+      "content": "Dimmed trade screen; non-dismissable bottom sheet (no close X). Real photo of a stamped envelope marked return to sender, soft light. Title 'Your trading permission has ended'. Body 'Your open positions and their take profit / stop loss stay on the exchange. To post, close or edit trades, sign a new 30-day permission.' Info row 'Expired 25 Nov 2026 \u00b7 2 positions open'. Primary 'Sign new permission'. Secondary 'View positions'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    }
+  ],
+  "designSystem": {
+    "variant": "P19",
+    "theme": "light",
+    "frame": "393x852 mobile (iPhone 16/17), top safe area 59px, bottom 34px",
+    "color": {
+      "background": "#F7FCF4",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#F2F6EE",
+      "accent": "#9FE870",
+      "accentFill": "#557D3C",
+      "accentTint": "#F2FCEB",
+      "accentPressed": "#4C7036",
+      "support": "#FFB08A",
+      "text": {
+        "primary": "#141F0C",
+        "secondary": "#4A5541",
+        "tertiary": "#6B7562"
+      },
+      "border": "#E3E9DE",
+      "success": "#16A34A",
+      "warning": "#D97706",
+      "danger": "#DC2626",
+      "gradient": [
+        "#557D3C",
+        "#4C7036"
+      ],
+      "statusOn": {
+        "warning": {
+          "fg": "#A75906",
+          "tint": "#FAEFE1"
+        },
+        "success": {
+          "fg": "#0E7C3A",
+          "tint": "#E3F4E9"
+        },
+        "danger": {
+          "fg": "#CE2020",
+          "tint": "#FBE5E5"
+        },
+        "info": {
+          "fg": "#4F7436",
+          "tint": "#EBEFE8"
+        }
+      },
+      "supportStrong": "#FF5F03",
+      "borderStrong": "#749F6F"
+    },
+    "type": {
+      "fontFamily": "Inter",
+      "displayFamily": "Familjen Grotesk",
+      "numeralFamily": "Familjen Grotesk (tabular-nums)",
+      "display": "40 / 700 / -0.02em - big primary numbers",
+      "title": "20 / 600",
+      "body": "16 / 400",
+      "label": "14 / 500",
+      "caption": "13 / 500",
+      "minSize": "12px (13px chips and tags, 14px safety or legal text)",
+      "scaleRule": "Use only the 5 declared sizes (display, title, body, label, caption)."
+    },
+    "radius": {
+      "card": 20,
+      "control": 14,
+      "input": 12,
+      "pill": 999
+    },
+    "spacing": "8pt scale, 20px screen padding, generous whitespace",
+    "elevation": "card = 0 1px 2px rgba(20,31,12,.04) + 0 8px 24px rgba(20,31,12,.06)",
+    "icons": "Lucide-style rounded outline, 24px, 1.75 stroke, one set",
+    "a11y": "lime accent carries ink labels only; white labels only on accentFill #57803E; 44pt tap targets",
+    "brand": "postal / send a letter: postmark circle stamp mark, perforated stamp edges on ticket cards, envelope and paper plane motifs, 'Post trade' CTA, 'Delivered' stamps. Clean, white, minimal, big primary numbers, small quiet labels."
+  },
+  "tokenCheck": {
+    "results": [
+      {
+        "pair": "text.primary on background",
+        "ratio": 16.4,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.primary on surface",
+        "ratio": 17.06,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.secondary on background",
+        "ratio": 7.57,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.secondary on surface",
+        "ratio": 7.87,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.tertiary on background",
+        "ratio": 4.64,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.tertiary on surface",
+        "ratio": 4.83,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "white label on accentFill (buttons)",
+        "ratio": 4.6,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "accentFill text on accentTint (chips, selected)",
+        "ratio": 4.36,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#557D3C",
+        "after": 4.54
+      },
+      {
+        "pair": "accentFill as link text on background",
+        "ratio": 4.6,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "white on hero gradient (both stops)",
+        "ratio": 4.79,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "warning text on its tint and on surface",
+        "ratio": 2.81,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#A75906",
+        "after": 4.54
+      },
+      {
+        "pair": "success text on its tint and on surface",
+        "ratio": 2.89,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#0E7C3A",
+        "after": 4.64
+      },
+      {
+        "pair": "danger text on its tint and on surface",
+        "ratio": 4.01,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#CE2020",
+        "after": 4.53
+      },
+      {
+        "pair": "info text on its tint and on surface",
+        "ratio": 4.12,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#4F7436",
+        "after": 4.65
+      },
+      {
+        "pair": "support as chart line / icon on surface (non-text 3:1)",
+        "ratio": 1.78,
+        "target": 3.0,
+        "pass": false,
+        "fixedTo": "#FF5F03",
+        "after": 3.05
+      },
+      {
+        "pair": "input / control border on surface (non-text 3:1)",
+        "ratio": 1.24,
+        "target": 3.0,
+        "pass": false,
+        "fixedTo": "#749F6F",
+        "after": 3.03
+      }
+    ],
+    "changed": {
+      "accentFill": {
+        "from": "#57803E",
+        "to": "#557D3C"
+      }
+    },
+    "passed": true
+  }
+}
