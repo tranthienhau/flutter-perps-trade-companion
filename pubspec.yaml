@@ -1,0 +1,47 @@
+name: dispatch_trade
+description: "Dispatch - Flutter trading companion for crypto perpetuals: Google/Apple sign-in, wallet connect on post, 30-day trade-only session key, trigger orders with TP/SL, live positions, weekly USDC rewards."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
+  pointycastle: ^3.9.1
+  convert: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/brand/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+    - family: Familjen Grotesk
+      fonts:
+        - asset: assets/fonts/FamiljenGrotesk-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/FamiljenGrotesk-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/FamiljenGrotesk-Bold.ttf
+          weight: 700
