@@ -1,0 +1,15 @@
+{
+  "name": "dispatch-signer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Session-key custody + EIP-712 trade signer + audit log + weekly builder-fee payouts for the Dispatch trading companion",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "ethers": "^6.13.4"
+  }
+}
